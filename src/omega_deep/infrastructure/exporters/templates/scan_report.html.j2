@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMEGA-DEEP — Rapport d'analyse {{ scan.id }}</title>
+<style>
+  /* Couleurs pilotees par le theme d'export choisi (omega_lib.theme.policies
+     ::EXPORT_PALETTES, meme catalogue que toute la suite, D-005/D-008).
+     Mise en page reprise du template d'omega-check (container/grid/badges,
+     police terminal monospace) pour une presentation coherente dans toute
+     la suite omega- — voir docs/ARCHITECTURE.md. */
+  * { box-sizing: border-box; }
+  body {
+    font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+    line-height: 1.6;
+    color: {{ palette.foreground }};
+    background: {{ palette.background }};
+    padding: 20px;
+    margin: 0;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: {{ palette.surface }};
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: {{ palette.foreground }};
+    border-bottom: 3px solid {{ palette.accent }};
+    padding-bottom: 10px;
+    margin: 0 0 20px;
+  }
+  h2 {
+    font-size: 1.1rem;
+    color: {{ palette.foreground }};
+    border-left: 4px solid {{ palette.accent }};
+    padding-left: 10px;
+    margin: 30px 0 15px;
+  }
+  h3 {
+    font-size: 0.95rem;
+    color: {{ palette.secondary }};
+    margin: 0 0 10px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .meta-item { background: {{ palette.panel }}; padding: 10px; border-radius: 4px; }
+  .meta-item strong { color: {{ palette.secondary }}; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .stat { background: {{ palette.panel }}; padding: 12px; border-radius: 4px; text-align: center; }
+  .stat-value { font-size: 1.6rem; font-weight: bold; }
+  .stat-value.open { color: {{ palette.success }}; }
+  .stat-value.closed { color: {{ palette.secondary }}; }
+  .stat-value.filtered { color: {{ palette.warning }}; }
+  .box {
+    background: {{ palette.panel }};
+    border: 1px solid {{ palette.accent }};
+    border-radius: 8px;
+    padding: 8px 20px 20px;
+    margin-bottom: 20px;
+  }
+  .graph-box { overflow-x: auto; }
+  .graph-box svg { display: block; margin: 10px auto 0; max-width: 100%; height: auto; }
+  .host-block { margin-bottom: 30px; }
+  .host-title {
+    background: {{ palette.accent }};
+    color: {{ palette.background }};
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid {{ palette.surface }}; }
+  th { color: {{ palette.secondary }}; font-weight: 600; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: {{ palette.background }};
+  }
+  .badge.open { background: {{ palette.success }}; }
+  .badge.closed { background: {{ palette.secondary }}; }
+  .badge.filtered { background: {{ palette.warning }}; }
+  .confidence { color: {{ palette.secondary }}; font-size: 0.85em; }
+  .service-detail { font-size: 0.9em; color: {{ palette.foreground }}; padding-left: 1.5rem; }
+  footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid {{ palette.panel }};
+    text-align: center;
+    color: {{ palette.secondary }};
+    font-size: 0.75rem;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>OMEGA-DEEP — Rapport d'analyse</h1>
+
+    <div class="meta-grid">
+      <div class="meta-item"><strong>Cible :</strong> {{ scan.target }} ({{ scan.target_ip or "non résolue" }})</div>
+      <div class="meta-item"><strong>Date :</strong> {{ scan.created_at }}</div>
+      <div class="meta-item"><strong>Profil :</strong> {{ scan.profile_name or "-" }} (origine : {{ scan.profile_origin or "-" }})</div>
+      <div class="meta-item"><strong>Mode :</strong> {{ scan.analysis_mode.value }}</div>
+      <div class="meta-item"><strong>Statut :</strong> {{ scan.status.value }}</div>
+      <div class="meta-item"><strong>Scan ID :</strong> {{ scan.id }}</div>
+    </div>
+
+    {% if not hosts %}
+      <p>Aucun résultat (scan échoué).</p>
+    {% else %}
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-value">{{ hosts|length }}</div><div>Host(s)</div></div>
+        <div class="stat"><div class="stat-value">{{ hosts|map(attribute="ports")|map("length")|sum }}</div><div>Ports scannés (total)</div></div>
+        {% if graph and graph.edges %}
+        <div class="stat"><div class="stat-value">{{ graph.edges|length }}</div><div>Relation(s)</div></div>
+        {% endif %}
+      </div>
+
+      {% for host in hosts|sort(attribute="depth_level") %}
+      <div class="host-block">
+        <div class="host-title">
+          {% if host.depth_level == 0 %}Cible initiale{% else %}Cible découverte (profondeur {{ host.depth_level }}){% endif %}
+          — {{ host.ip }}
+        </div>
+        {% if host.discovered_from %}
+        <p class="confidence">découverte depuis {{ host.discovered_from }} via {{ host.discovery_source }} [{{ host.discovery_confidence.value }}]</p>
+        {% endif %}
+
+        {% set states = host.ports | map(attribute="state.value") | list %}
+        <div class="stats-grid">
+          <div class="stat"><div class="stat-value">{{ host.ports|length }}</div><div>Ports scannés</div></div>
+          <div class="stat"><div class="stat-value open">{{ states | select("equalto", "open") | list | length }}</div><div>Ouverts</div></div>
+          <div class="stat"><div class="stat-value closed">{{ states | select("equalto", "closed") | list | length }}</div><div>Fermés</div></div>
+          <div class="stat"><div class="stat-value filtered">{{ states | select("equalto", "filtered") | list | length }}</div><div>Filtrés</div></div>
+        </div>
+
+        <div class="box">
+          <table>
+            <thead>
+              <tr><th>Port</th><th>Protocole</th><th>État</th><th>Service identifié</th><th>Rôle</th></tr>
+            </thead>
+            <tbody>
+              {% for port in host.ports|sort(attribute="port_number") %}
+              <tr>
+                <td>{{ port.port_number }}</td>
+                <td>{{ port.protocol }}</td>
+                <td>
+                  <span class="badge {{ port.state.value }}">{{ port.state.value }}</span>
+                  <span class="confidence">[{{ port.state_confidence.value }}]</span>
+                </td>
+                <td>
+                  {% if port.service and port.service.protocol_name %}
+                    {{ port.service.protocol_name }}
+                    {% if port.service.software %}— {{ port.service.software }} {{ port.service.version or "" }}{% endif %}
+                  {% else %}
+                    —
+                  {% endif %}
+                </td>
+                <td>
+                  {% if port.service and port.service.role %}
+                    {{ port.service.role }}
+                    <span class="confidence">[{{ port.service.role_confidence.value }}]</span>
+                  {% else %}
+                    —
+                  {% endif %}
+                </td>
+              </tr>
+              {% if port.service and (port.service.tls_version or port.service.waf_present or port.service.auth_required is not none) %}
+              <tr>
+                <td colspan="5" class="service-detail">
+                  {% if port.service.auth_required is not none %}
+                    Auth : {{ "requise" if port.service.auth_required else "non requise" }}
+                    {% if port.service.auth_types %}({{ port.service.auth_types|join(", ") }}){% endif %}
+                    <span class="confidence">[{{ port.service.auth_required_confidence.value }}]</span>
+                  {% endif %}
+                  {% if port.service.waf_present %}
+                    · WAF : {{ port.service.waf_name_guess or "présent" }}
+                    <span class="confidence">[{{ port.service.waf_confidence.value }}]</span>
+                  {% endif %}
+                  {% if port.service.tls_version %}
+                    · TLS : {{ port.service.tls_version }}, {{ port.service.tls_cipher or "?" }}
+                    {% if port.service.tls_cert_subject %}(certificat : {{ port.service.tls_cert_subject }}){% endif %}
+                  {% endif %}
+                </td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endfor %}
+
+      {% if graph_svg %}
+      <h2>Graphe d'architecture</h2>
+      <div class="box graph-box">
+        {{ graph_svg | safe }}
+      </div>
+      {% endif %}
+    {% endif %}
+
+    <footer>Rapport généré par <strong>OMEGA-DEEP</strong></footer>
+  </div>
+</body>
+</html>
