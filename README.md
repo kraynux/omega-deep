@@ -1,13 +1,16 @@
-#  OMEGA-DEEP
+<!-- Copyright (c) 2026 kraynux - kraynux@proton.me - Licence MIT (voir fichier LICENSE) -->
+<div align="center">
+  <img src="docs/assets/omega-deep.png" alt="Omega-Deep" width="256">
+</div>
+
+# 🖧 OMEGA-DEEP
 
 **Analyse d'architecture multi-cibles (découverte + garde-fous + graphe)**
 
-Élaboré par kraynux pour Omega-server
+> Élaboré par **kraynux** pour **Omega-server** 
 [https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
-Page officiel :
-[OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/)
-Apercu :
-[Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)
+
+Page officiel : [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Apercu : [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
@@ -16,7 +19,7 @@ Apercu :
 
 ---
 
-Omega-deep reprend tout ce que fait `omega-check` sur une cible unique (scan de ports, identification de service, rôles, WAF, TLS) et y ajoute la **découverte de cibles supplémentaires** à partir des indices laissés par la cible déjà scannée (en-têtes, redirections, certificat, liens HTML), sous des **garde-fous stricts** et une **validation utilisateur explicite** avant tout scan d'une cible découverte, puis **reconstruit un graphe d'architecture** (qui parle à qui, avec quelle confiance). Cinquième outil de la suite `omega-` (après `omega-fire`, `omega-stress`, `omega-scan` et `omega-check`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
+**Omega-deep** reprend tout ce que fait `omega-check` sur une cible unique (scan de ports, identification de service, rôles, WAF, TLS) et y ajoute la **découverte de cibles supplémentaires** à partir des indices laissés par la cible déjà scannée (en-têtes, redirections, certificat, liens HTML), sous des **garde-fous stricts** et une **validation utilisateur explicite** avant tout scan d'une cible découverte, puis **reconstruit un graphe d'architecture** (qui parle à qui, avec quelle confiance). Cinquième outil de la suite `omega-` (après `omega-fire`, `omega-stress`, `omega-scan` et `omega-check`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
 
 ## 1. Vision et périmètre
 
