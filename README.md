@@ -17,6 +17,9 @@ Page officiel : [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) 
 [![Platform](https://img.shields.io/badge/Platform-Linux-informational.svg)](https://www.linux.org/)
 [![Interface](https://img.shields.io/badge/Interface-TUI%20%2B%20Rich-cyan.svg)](https://github.com/Textualize/rich)
 
+**Languages:**  
+[Francais](README.md) · [English](README.en.md) · [Español](README.es.md) · [Русский](README.ru.md) · [中文](README.zh-CN.md)
+
 ---
 
 **Omega-deep** reprend tout ce que fait `omega-check` sur une cible unique (scan de ports, identification de service, rôles, WAF, TLS) et y ajoute la **découverte de cibles supplémentaires** à partir des indices laissés par la cible déjà scannée (en-têtes, redirections, certificat, liens HTML), sous des **garde-fous stricts** et une **validation utilisateur explicite** avant tout scan d'une cible découverte, puis **reconstruit un graphe d'architecture** (qui parle à qui, avec quelle confiance). Cinquième outil de la suite `omega-` (après `omega-fire`, `omega-stress`, `omega-scan` et `omega-check`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
