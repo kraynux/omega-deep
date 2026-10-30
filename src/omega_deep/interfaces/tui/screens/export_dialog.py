@@ -17,12 +17,17 @@ from textual.widgets import Button, Input, Select, Static
 
 from omega_deep.application.commands.export_scan_report import export_scan_report
 from omega_deep.application.queries.build_export_filename import build_export_filename
+from omega_deep.application.queries.configured_directory import (
+    EXPORTS_DIR_KEY,
+    configured_directory,
+)
 from omega_deep.domain.scans.models import Scan
+from omega_deep.shared.i18n import LANGUAGE, _, translating_as
 
 if TYPE_CHECKING:
     from omega_deep.app.dependency_container import DependencyContainer
 
-_FORMATS = (("JSON", "json"), ("Texte", "text"), ("HTML", "html"))
+_FORMATS = (("JSON", "json"), (_("Texte"), "text"), ("HTML", "html"))
 
 
 class ExportDialogScreen(ModalScreen[None]):
@@ -37,26 +42,29 @@ class ExportDialogScreen(ModalScreen[None]):
 
     def compose(self) -> ComposeResult:
         with Vertical(classes="omega-modal"):
-            yield Static("EXPORTER L'ANALYSE", classes="omega-title")
+            yield Static(_("EXPORTER L'ANALYSE"), classes="omega-title")
 
-            yield Static("Format", classes="omega-subtitle")
+            yield Static(_("Format"), classes="omega-subtitle")
             yield Select(list(_FORMATS), value="html", id="format-select")
 
-            yield Static("Theme (HTML uniquement)", classes="omega-subtitle")
+            yield Static(_("Thème (HTML uniquement)"), classes="omega-subtitle")
             yield Select([(name, name) for name in EXPORT_PALETTES], value=self._default_theme, id="theme-select")
 
-            yield Static("Destination", classes="omega-subtitle")
+            yield Static(_("Destination"), classes="omega-subtitle")
             yield Input(value=self._default_path("html"), id="path-input")
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Exporter", id="export", variant="primary")
+                    yield Button(_("Exporter"), id="export", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Annuler", id="cancel")
+                    yield Button(_("Annuler"), id="cancel")
 
     def _default_path(self, fmt: str) -> str:
         filename = build_export_filename(self._scan, fmt)
-        return str(self._container.default_exports_dir / filename)
+        exports_dir = configured_directory(
+            self._container.settings_store, EXPORTS_DIR_KEY, self._container.default_exports_dir
+        )
+        return str(exports_dir / filename)
 
     def on_select_changed(self, event: Select.Changed) -> None:
         if event.select.id == "format-select":
@@ -73,17 +81,19 @@ class ExportDialogScreen(ModalScreen[None]):
         theme_name = str(self.query_one("#theme-select", Select).value)
         path_str = self.query_one("#path-input", Input).value.strip()
         if not path_str:
-            self.app.notify("Saisissez un chemin de destination.", severity="warning")
+            self.app.notify(_("Saisissez un chemin de destination."), severity="warning")
             return
 
         assert self._scan.id is not None
-        content = export_scan_report(
-            self._container.scan_repository, self._container.report_exporter, self._scan.id, fmt, theme_name
-        )
+        # Lot N (Q5) : rapport ecrit dans la langue des exports (reglage ; dans la suite, le sien).
+        with translating_as(LANGUAGE.export_state(self._container.settings_store)):
+            content = export_scan_report(
+                self._container.scan_repository, self._container.report_exporter, self._scan.id, fmt, theme_name
+            )
 
         output_path = Path(path_str)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(content, encoding="utf-8")
-        self.app.notify(str(output_path), title=f"Export {fmt} termine")
+        self.app.notify(str(output_path), title=_("Export {fmt} terminé").format(fmt=fmt))
         self.dismiss()
 

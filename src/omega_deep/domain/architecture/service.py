@@ -13,6 +13,7 @@ from __future__ import annotations
 from omega_deep.domain.architecture.models import ArchitectureEdge, ArchitectureGraph
 from omega_deep.domain.architecture.policies import relation_type_for_source
 from omega_deep.domain.targets.models import Host
+from omega_deep.shared.i18n import _
 
 
 def reconstruct_architecture(hosts: list[Host]) -> ArchitectureGraph:
@@ -31,7 +32,7 @@ def reconstruct_architecture(hosts: list[Host]) -> ArchitectureGraph:
                 target_ip=host.ip,
                 relation_type=relation_type_for_source(host.discovery_source),
                 confidence=host.discovery_confidence,
-                evidence=[f"decouvert via {host.discovery_source}"] if host.discovery_source else [],
+                evidence=[_("découvert via {discovery_source}").format(discovery_source=host.discovery_source)] if host.discovery_source else [],
             )
         )
 

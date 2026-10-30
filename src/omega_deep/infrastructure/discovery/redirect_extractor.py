@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from omega_deep.domain.targets.validation import normalize_target_input
+from omega_deep.shared.i18n import _
 
 
 def extract_from_redirect(location: str | None) -> list[tuple[str, str]]:
@@ -17,4 +18,4 @@ def extract_from_redirect(location: str | None) -> list[tuple[str, str]]:
     candidate = normalize_target_input(location)
     if not candidate:
         return []
-    return [(candidate, f"redirection Location: {location}")]
+    return [(candidate, _("redirection Location: {location}").format(location=location))]

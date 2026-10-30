@@ -24,10 +24,11 @@ from textual.widgets import Button, DataTable, Static
 
 from omega_deep.domain.discovery.models import DiscoveredTarget
 from omega_deep.interfaces.tui.widgets.discovery_table import DiscoveryTable
+from omega_deep.shared.i18n import _
 
 
 class TargetValidationScreen(ModalScreen[dict[str, bool]]):
-    BINDINGS: ClassVar[list[BindingType]] = [Binding("escape", "back", "Tout rejeter", show=True)]
+    BINDINGS: ClassVar[list[BindingType]] = [Binding("escape", "back", _("Tout rejeter"), show=True)]
 
     def __init__(self, *, targets: list[DiscoveredTarget], parent_ip: str) -> None:
         super().__init__()
@@ -37,10 +38,10 @@ class TargetValidationScreen(ModalScreen[dict[str, bool]]):
 
     def compose(self) -> ComposeResult:
         with Vertical(classes="omega-modal"):
-            yield Static("CIBLES DECOUVERTES", classes="omega-title")
+            yield Static(_("CIBLES DÉCOUVERTES"), classes="omega-title")
             yield Static(
-                f"{len(self._targets)} cible(s) decouverte(s) depuis {self._parent_ip}. "
-                "Aucune n'est scannee sans acceptation explicite.",
+                _("{count} cible(s) découverte(s) depuis {parent_ip}. Aucune n'est scannée "
+                  "sans acceptation explicite.").format(count=len(self._targets), parent_ip=self._parent_ip),
                 classes="omega-subtitle",
             )
             yield DiscoveryTable(id="discovery-table")
@@ -48,13 +49,13 @@ class TargetValidationScreen(ModalScreen[dict[str, bool]]):
                 yield Static("", id="evidence-detail", classes="omega-hint")
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Basculer", id="toggle")
+                    yield Button(_("Basculer"), id="toggle")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Tout accepter", id="accept-all")
+                    yield Button(_("Tout accepter"), id="accept-all")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Tout rejeter", id="reject-all")
+                    yield Button(_("Tout rejeter"), id="reject-all")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Valider", id="submit", variant="primary")
+                    yield Button(_("Valider"), id="submit", variant="primary")
 
     def on_mount(self) -> None:
         self.query_one(DiscoveryTable).set_targets(self._targets, self._decisions)
@@ -64,9 +65,9 @@ class TargetValidationScreen(ModalScreen[dict[str, bool]]):
         target = next((t for t in self._targets if t.host == host), None)
         detail = self.query_one("#evidence-detail", Static)
         if target is None or not target.evidence:
-            detail.update("(aucune preuve associee)")
+            detail.update(_("(aucune preuve associée)"))
             return
-        detail.update("\n".join(f"- {line}" for line in target.evidence))
+        detail.update("\n".join(f"- {_(line)}" for line in target.evidence))
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         table = self.query_one(DiscoveryTable)

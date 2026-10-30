@@ -8,6 +8,7 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_deep.domain.scans.models import Scan
+from omega_deep.shared.i18n import _
 
 
 class HistoryTable(DataTable[str]):
@@ -15,7 +16,7 @@ class HistoryTable(DataTable[str]):
 
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Cible racine", "Date", "Profil", "Cibles", "Statut")
+        self.add_columns(_("Cible racine"), _("Date"), _("Profil"), _("Cibles"), _("Statut"))
 
     def set_scans(self, scans: tuple[Scan, ...]) -> None:
         self.clear()

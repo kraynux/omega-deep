@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from omega_deep.core.exceptions import OmegaDeepError
+from omega_deep.shared.i18n import _
 
 
 class ApplicationError(OmegaDeepError):
@@ -23,7 +24,7 @@ class TargetResolutionError(ApplicationError):
     domain/targets/validation.py::normalize_target_input)."""
 
     def __init__(self, target: str, reason: str | None = None) -> None:
-        message = f"Echec de resolution DNS : {target}"
+        message = _("Échec de résolution DNS : {target}").format(target=target)
         if reason:
             message = f"{message} ({reason})"
         super().__init__(message)
@@ -35,5 +36,5 @@ class UnknownThemeError(ApplicationError):
     """Nom de theme demande absent du catalogue omega_lib.theme.policies.TUI_THEMES."""
 
     def __init__(self, theme_name: str) -> None:
-        super().__init__(f"Theme inconnu : '{theme_name}'")
+        super().__init__(_("Thème inconnu : '{theme_name}'").format(theme_name=theme_name))
         self.theme_name = theme_name

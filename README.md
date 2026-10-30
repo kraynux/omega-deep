@@ -17,12 +17,13 @@ Page officiel : [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) 
 [![Platform](https://img.shields.io/badge/Platform-Linux-informational.svg)](https://www.linux.org/)
 [![Interface](https://img.shields.io/badge/Interface-TUI%20%2B%20Rich-cyan.svg)](https://github.com/Textualize/rich)
 
-**Languages:**  
-[Francais](README.md) · [English](README.en.md) · [Español](README.es.md) · [Русский](README.ru.md) · [中文](README.zh-CN.md)
+🌐 Interface et rapports exportés disponibles en **17 langues** — voir [Langues de l'interface](#langues-de-linterface).  
+**Langues :**  
+<img src="https://flagcdn.com/w20/fr.png" alt="Français" style="height:14px;"> [Français](README.md) · <img src="https://flagcdn.com/w20/gb.png" alt="English" style="height:14px;"> [English](docs/translation/en/README.md) · <img src="https://flagcdn.com/w20/es.png" alt="Español" style="height:14px;"> [Español](docs/translation/es/README.md) · <img src="https://flagcdn.com/w20/br.png" alt="Português (Brasil)" style="height:14px;"> [Português (Brasil)](docs/translation/pt-BR/README.md) · <img src="https://flagcdn.com/w20/it.png" alt="Italiano" style="height:14px;"> [Italiano](docs/translation/it/README.md) · <img src="https://flagcdn.com/w20/de.png" alt="Deutsch" style="height:14px;"> [Deutsch](docs/translation/de/README.md) · <img src="https://flagcdn.com/w20/nl.png" alt="Nederlands" style="height:14px;"> [Nederlands](docs/translation/nl/README.md) · <img src="https://flagcdn.com/w20/pl.png" alt="Polski" style="height:14px;"> [Polski](docs/translation/pl/README.md) · <img src="https://flagcdn.com/w20/ru.png" alt="Русский" style="height:14px;"> [Русский](docs/translation/ru/README.md) · <img src="https://flagcdn.com/w20/cn.png" alt="中文" style="height:14px;"> [中文](docs/translation/zh-CN/README.md) · <img src="https://flagcdn.com/w20/vn.png" alt="Tiếng Việt" style="height:14px;"> [Tiếng Việt](docs/translation/vi/README.md) · <img src="https://flagcdn.com/w20/th.png" alt="ไทย" style="height:14px;"> [ไทย](docs/translation/th/README.md) · <img src="https://flagcdn.com/w20/id.png" alt="Bahasa Indonesia" style="height:14px;"> [Bahasa Indonesia](docs/translation/id/README.md) · <img src="https://flagcdn.com/w20/jp.png" alt="日本語" style="height:14px;"> [日本語](docs/translation/ja/README.md) · <img src="https://flagcdn.com/w20/kr.png" alt="한국어" style="height:14px;"> [한국어](docs/translation/ko/README.md) · <img src="https://flagcdn.com/w20/in.png" alt="हिन्दी" style="height:14px;"> [हिन्दी](docs/translation/hi/README.md) · <img src="https://flagcdn.com/w20/ae.png" alt="العربية" style="height:14px;"> [العربية](docs/translation/ar/README.md)
 
 ---
 
-**Omega-deep** reprend tout ce que fait `omega-check` sur une cible unique (scan de ports, identification de service, rôles, WAF, TLS) et y ajoute la **découverte de cibles supplémentaires** à partir des indices laissés par la cible déjà scannée (en-têtes, redirections, certificat, liens HTML), sous des **garde-fous stricts** et une **validation utilisateur explicite** avant tout scan d'une cible découverte, puis **reconstruit un graphe d'architecture** (qui parle à qui, avec quelle confiance). Cinquième outil de la suite `omega-` (après `omega-fire`, `omega-stress`, `omega-scan` et `omega-check`), structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
+**Omega-deep** reprend tout ce que fait `omega-check` sur une cible unique (scan de ports, identification de service, rôles, WAF, TLS) et y ajoute la **découverte de cibles supplémentaires** à partir des indices laissés par la cible déjà scannée (en-têtes, redirections, certificat, liens HTML), sous des **garde-fous stricts** et une **validation utilisateur explicite** avant tout scan d'une cible découverte, puis **reconstruit un graphe d'architecture** (qui parle à qui, avec quelle confiance). Outil de la suite `omega-`, structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
 
 ## 1. Vision et périmètre
 
@@ -110,6 +111,10 @@ Parcours : écran de démarrage (se ferme sur une touche ou un clic) → menu pr
 | `r` | Rafraîchir la détection du terminal |
 | `a` | Afficher l'aide |
 | `q` | Quitter (avec confirmation) |
+
+### Langues de l'interface
+
+L'interface est disponible en 17 langues : français, anglais, espagnol, portugais (Brésil), italien, allemand, néerlandais, polonais, russe, chinois simplifié, vietnamien, thaï, indonésien, japonais, coréen, hindi et arabe. Le choix se fait dans les Réglages (« Langue / Language ») et s'applique après un redémarrage de l'interface ; la variable `OMEGA_DEEP_LANG` (par exemple `OMEGA_DEEP_LANG=en ./omega-deep.sh`) force une langue le temps d'une session. Lancé depuis omega-suite, omega-deep prend la langue de la suite. Sur une console texte Linux (TTY), les langues à écriture non latine s'affichent en anglais pour la session. La ligne de commande reste en français.
 
 ### Mode scriptable (CLI)
 
@@ -314,7 +319,7 @@ Le profil final retenu est **le plus restrictif des deux** (émulateur et taille
 
 ## 12. Exports
 
-Les rapports sont générés dans `var/exports/` par défaut (chemin runtime ancré sur le dossier du projet, `$OMEGA_DEEP_VAR_DIR` pour le surcharger), ou au chemin indiqué (`--output` en CLI, boîte de dialogue en TUI). Nom de fichier explicite et horodaté : `analyse-{profil}-{date}.ext`, `analyse-custom-{date}.ext` pour un profil personnel.
+Les rapports texte et HTML s'écrivent dans la langue choisie dans les Réglages (« Langue des exports », par défaut celle de l'interface) ; le JSON reste une donnée, non traduite. Les rapports sont générés dans `var/exports/` par défaut (chemin runtime ancré sur le dossier du projet, `$OMEGA_DEEP_VAR_DIR` pour le surcharger), ou au chemin indiqué (`--output` en CLI, boîte de dialogue en TUI). Nom de fichier explicite et horodaté : `analyse-{profil}-{date}.ext`, `analyse-custom-{date}.ext` pour un profil personnel.
 
 ### JSON, source de vérité
 
@@ -337,7 +342,7 @@ Chaque analyse est persistée (SQLite, `var/db/omega-deep.db`) : un `scan_id` po
 ```bash
 source .venv/bin/activate
 lint-imports        # verifie la Dependency Rule
-pytest -q           # 173 tests
+pytest -q           # 191 tests
 ruff check src tests
 mypy -p omega_deep
 ```

@@ -13,6 +13,7 @@ import struct
 from omega_deep.core.enums import ConfidenceLevel
 from omega_deep.domain.services.models import Service
 from omega_deep.domain.services.policies import classify_vnc_security
+from omega_deep.shared.i18n import _
 
 _VERSION_RE = re.compile(rb"^RFB (\d{3})\.(\d{3})\n$")
 
@@ -27,14 +28,14 @@ class SocketVncProber:
                 banner = _recv_exact(sock, 12)
                 match = _VERSION_RE.match(banner)
                 if not match:
-                    return Service(evidence=[f"banner inattendu (pas RFB) : {banner!r}"])
+                    return Service(evidence=[_("banner inattendu (pas RFB) : {banner!r}").format(banner=banner)])
 
                 major, minor = int(match.group(1)), int(match.group(2))
                 sock.sendall(banner)  # on reconduit la version du serveur, toujours valide (RFC 6143 §7.1.1)
 
                 security_types = _read_security_types(sock, major, minor)
         except OSError as exc:
-            return Service(evidence=[f"echec de connexion VNC : {exc}"])
+            return Service(evidence=[_("échec de connexion VNC : {exc}").format(exc=exc)])
 
         if security_types is None:
             return Service(
@@ -42,7 +43,7 @@ class SocketVncProber:
                 protocol_confidence=ConfidenceLevel.VERIFIED,
                 version=f"{major}.{minor}",
                 version_confidence=ConfidenceLevel.VERIFIED,
-                evidence=[f"RFB {major}.{minor} : negociation des security types echouee/refusee"],
+                evidence=[_("RFB {major}.{minor} : négociation des security types échouée/refusée").format(major=major, minor=minor)],
             )
 
         auth_required, type_names = classify_vnc_security(security_types)
@@ -55,7 +56,7 @@ class SocketVncProber:
             auth_required_confidence=ConfidenceLevel.VERIFIED if type_names else ConfidenceLevel.UNKNOWN,
             auth_types=type_names,
             auth_types_confidence=ConfidenceLevel.VERIFIED if type_names else ConfidenceLevel.UNKNOWN,
-            evidence=[f"RFB {major}.{minor}, security types : {type_names}"],
+            evidence=[_("RFB {major}.{minor}, security types : {type_names}").format(major=major, minor=minor, type_names=type_names)],
         )
 
 

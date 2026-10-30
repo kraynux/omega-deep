@@ -1,0 +1,278 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-deep\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_deep/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-deep"
+msgstr "มีการติดตั้ง omega-deep อยู่ภายใน"
+
+#: src/omega_deep/application/commands/scan_host.py:69
+#, python-format
+msgid "Host %s : %d port(s) analysé(s)."
+msgstr "โฮสต์ %s: วิเคราะห์ %d พอร์ต"
+
+#: src/omega_deep/domain/architecture/service.py:35
+#, python-brace-format
+msgid "découvert via {discovery_source}"
+msgstr "ค้นพบผ่าน {discovery_source}"
+
+#: src/omega_deep/infrastructure/discovery/header_extractor.py:34
+#, python-brace-format
+msgid "header {header_name}: {segment}"
+msgstr "ส่วนหัว {header_name}: {segment}"
+
+#: src/omega_deep/infrastructure/discovery/html_link_extractor.py:28
+#, python-brace-format
+msgid "lien HTML : {url}"
+msgstr "ลิงก์ HTML: {url}"
+
+#: src/omega_deep/infrastructure/discovery/redirect_extractor.py:21
+#, python-brace-format
+msgid "redirection Location: {location}"
+msgstr "เปลี่ยนเส้นทาง Location: {location}"
+
+#: src/omega_deep/infrastructure/discovery/tls_san_extractor.py:22
+#, python-brace-format
+msgid "certificat SAN : {entry}"
+msgstr "SAN ของใบรับรอง: {entry}"
+
+#: src/omega_deep/infrastructure/storage/sqlite/scan_repository.py:124
+msgid "échec de sauvegarde des hosts pour le scan {scan_id!r}"
+msgstr "บันทึกโฮสต์สำหรับการสแกน {scan_id!r} ไม่สำเร็จ"
+
+#: src/omega_deep/infrastructure/storage/sqlite/scan_repository.py:356
+msgid "échec de sauvegarde du graphe pour le scan {scan_id!r}"
+msgstr "บันทึกกราฟสำหรับการสแกน {scan_id!r} ไม่สำเร็จ"
+
+#: src/omega_deep/interfaces/tui/app.py:39
+msgid "🔍 OMEGA-DEEP"
+msgstr "🔍 OMEGA-DEEP"
+
+#: src/omega_deep/interfaces/tui/screens/compare.py:35
+msgid "COMPARAISON D'ANALYSES"
+msgstr "การเปรียบเทียบการวิเคราะห์"
+
+#: src/omega_deep/interfaces/tui/screens/export_dialog.py:45
+msgid "EXPORTER L'ANALYSE"
+msgstr "ส่งออกการวิเคราะห์"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+msgid "Analyser"
+msgstr "วิเคราะห์"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
+msgstr "ป้อนเป้าหมายราก (IP หรือชื่อโฮสต์) โปรไฟล์พอร์ต และข้อจำกัดการค้นหา (ความลึกสูงสุด, จำนวนเป้าหมายเพิ่มเติม, ซับเน็ตที่อนุญาต) แล้วเริ่มการวิเคราะห์ เป้าหมายที่ค้นพบแต่ละรายการจะถูกนำเสนอเพื่ออนุมัติก่อนการสแกนใด ๆ (ไม่มีเป้าหมายใดถูกสแกนโดยอัตโนมัติ)"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
+msgstr "แสดงการวิเคราะห์ที่ผ่านมาทั้งหมด: รายละเอียดครบถ้วน (โฮสต์ + กราฟสถาปัตยกรรม) เปรียบเทียบสองการวิเคราะห์ หรือเรียกใช้การวิเคราะห์ซ้ำบนเป้าหมายรากเดิม"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
+msgstr "จากรายละเอียดการวิเคราะห์: JSON (โครงสร้างครบถ้วน) ข้อความ (รายงานกระชับ) หรือ HTML (รายงานแบบภาพพร้อมแผนภาพกราฟสถาปัตยกรรม ธีมการส่งออกแยกจากธีมของอินเทอร์เฟซ)"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
+msgstr "Omega-deep ค้นหาและทำแผนที่สถาปัตยกรรมรอบเป้าหมายราก (วิเคราะห์หลายเป้าหมาย): เป้าหมายที่ค้นพบแต่ละรายการ (ลิงก์ HTTP, บริการที่ประกาศ) จะถูกเสนอให้ผู้ใช้ — ไม่ถูกสแกนโดยไม่ได้รับการอนุมัติอย่างชัดเจน (fail-safe: สิ่งที่ไม่ได้ยืนยันจะถูกปฏิเสธทั้งหมด) ข้อจำกัด (ความลึก, จำนวนเป้าหมาย, ซับเน็ต) จะจำกัดขอบเขตการค้นหาเสมอ"
+
+#: src/omega_deep/interfaces/tui/screens/history.py:43
+msgid "Filtrer par cible racine..."
+msgstr "กรองตามเป้าหมายราก..."
+
+#: src/omega_deep/interfaces/tui/screens/history.py:112
+msgid "Impossible de rejouer cette analyse (profil inconnu)."
+msgstr "ไม่สามารถเรียกใช้การวิเคราะห์นี้ซ้ำได้ (ไม่รู้จักโปรไฟล์)"
+
+#: src/omega_deep/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-DEEP ?"
+msgstr "ออกจาก OMEGA-DEEP หรือไม่?"
+
+#: src/omega_deep/interfaces/tui/screens/scan_progress.py:86
+#, python-brace-format
+msgid "Analyse de {target} en cours..."
+msgstr "กำลังวิเคราะห์ {target}..."
+
+#: src/omega_deep/interfaces/tui/screens/scan_progress.py:117
+msgid "Analyse échouée"
+msgstr "การวิเคราะห์ล้มเหลว"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:61
+msgid "ANALYSER UNE CIBLE"
+msgstr "วิเคราะห์เป้าหมาย"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:63 src/omega_deep/interfaces/tui/widgets/history_table.py:19
+msgid "Cible racine"
+msgstr "เป้าหมายราก"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:69
+#, python-brace-format
+msgid "* {name}"
+msgstr "* {name}"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:74
+msgid "Garde-fous de découverte"
+msgstr "ข้อจำกัดการค้นหา"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:77
+msgid "Nombre max de cibles supplémentaires"
+msgstr "จำนวนเป้าหมายเพิ่มเติมสูงสุด"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:79
+msgid "Sous-réseau autorisé (ex. 192.168.1.0/24, facultatif)"
+msgstr "ซับเน็ตที่อนุญาต (เช่น 192.168.1.0/24, ไม่บังคับ)"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:108
+msgid "Profondeur/nombre de cibles : entiers attendus."
+msgstr "ความลึก/จำนวนเป้าหมาย: ต้องเป็นจำนวนเต็ม"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:111
+msgid "Profondeur >= 1 et nombre de cibles >= 0 attendus."
+msgstr "ความลึกต้อง >= 1 และจำนวนเป้าหมาย >= 0"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:138
+msgid "Ce profil est exhaustif (union de tous les profils système) : l'analyse peut être longue. Continuer ?"
+msgstr "โปรไฟล์นี้ครบถ้วน (รวมโปรไฟล์ระบบทั้งหมด): การวิเคราะห์อาจใช้เวลานาน ดำเนินการต่อหรือไม่?"
+
+#: src/omega_deep/interfaces/tui/screens/settings_screen.py:126
+msgid "Toutes les analyses persistées seront définitivement supprimées."
+msgstr "การวิเคราะห์ที่บันทึกไว้ทั้งหมดจะถูกลบอย่างถาวร"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:54
+#, python-brace-format
+msgid "ANALYSE {id}"
+msgstr "การวิเคราะห์ {id}"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:56
+#, python-brace-format
+msgid "Cible racine : {target} ({target_ip}) — profil {value} — statut {value2} — {count} cible(s) découverte(s)"
+msgstr "เป้าหมายราก: {target} ({target_ip}) — โปรไฟล์ {value} — สถานะ {value2} — ค้นพบ {count} เป้าหมาย"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:61
+msgid "Hosts"
+msgstr "โฮสต์"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:64
+msgid "Ports / services du host sélectionné"
+msgstr "พอร์ต / บริการของโฮสต์ที่เลือก"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:67 src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:214
+msgid "Graphe d'architecture"
+msgstr "กราฟสถาปัตยกรรม"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:85
+msgid "Aucune relation détectée."
+msgstr "ไม่พบความสัมพันธ์"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:31 src/omega_deep/interfaces/tui/screens/target_validation.py:56
+msgid "Tout rejeter"
+msgstr "ปฏิเสธทั้งหมด"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:41
+msgid "CIBLES DÉCOUVERTES"
+msgstr "เป้าหมายที่ค้นพบ"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:43
+#, python-brace-format
+msgid "{count} cible(s) découverte(s) depuis {parent_ip}. Aucune n'est scannée sans acceptation explicite."
+msgstr "ค้นพบ {count} เป้าหมายจาก {parent_ip} จะไม่สแกนรายการใดโดยไม่ได้รับการยอมรับอย่างชัดเจน"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:52
+msgid "Basculer"
+msgstr "สลับ"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:54
+msgid "Tout accepter"
+msgstr "ยอมรับทั้งหมด"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:58
+msgid "Valider"
+msgstr "ยืนยัน"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:68
+msgid "(aucune preuve associée)"
+msgstr "(ไม่มีหลักฐานที่เกี่ยวข้อง)"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:15
+msgid "REJETER"
+msgstr "ปฏิเสธ"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:16
+msgid "ACCEPTER"
+msgstr "ยอมรับ"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:30 src/omega_deep/interfaces/tui/widgets/hosts_table.py:21
+msgid "Découvert depuis"
+msgstr "ค้นพบจาก"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:31
+msgid "Décision"
+msgstr "การตัดสินใจ"
+
+#: src/omega_deep/interfaces/tui/widgets/hosts_table.py:21
+msgid "Hostname"
+msgstr "ชื่อโฮสต์"
+
+#: src/omega_deep/interfaces/tui/widgets/hosts_table.py:21
+msgid "Profondeur"
+msgstr "ความลึก"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:17
+msgid "=== OMEGA-DEEP — Rapport d'analyse ==="
+msgstr "=== OMEGA-DEEP — รายงานการวิเคราะห์ ==="
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:22
+#, python-brace-format
+msgid "Mode       : {value}"
+msgstr "โหมด       : {value}"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:32 src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:141
+#, python-brace-format
+msgid "Cible découverte (profondeur {depth_level})"
+msgstr "เป้าหมายที่ค้นพบ (ความลึก {depth_level})"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:32 src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:141
+msgid "Cible initiale"
+msgstr "เป้าหมายเริ่มต้น"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:36
+#, python-brace-format
+msgid "    découverte depuis {discovered_from} via {discovery_source} [{value}]"
+msgstr "    ค้นพบจาก {discovered_from} ผ่าน {discovery_source} [{value}]"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:56
+msgid "=== Graphe d'architecture ==="
+msgstr "=== กราฟสถาปัตยกรรม ==="
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-DEEP — Rapport d'analyse {id}"
+msgstr "OMEGA-DEEP — รายงานการวิเคราะห์ {id}"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:116
+msgid "OMEGA-DEEP — Rapport d'analyse"
+msgstr "OMEGA-DEEP — รายงานการวิเคราะห์"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:131
+msgid "Host(s)"
+msgstr "โฮสต์"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:132
+msgid "Ports scannés (total)"
+msgstr "พอร์ตที่สแกน (รวม)"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:134
+msgid "Relation(s)"
+msgstr "ความสัมพันธ์"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:145
+#, python-brace-format
+msgid "découverte depuis {discovered_from} via {discovery_source} [{discovery_confidence}]"
+msgstr "ค้นพบจาก {discovered_from} ผ่าน {discovery_source} [{discovery_confidence}]"

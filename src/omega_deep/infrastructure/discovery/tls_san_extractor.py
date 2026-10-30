@@ -6,6 +6,7 @@ handshake TLS ici."""
 from __future__ import annotations
 
 from omega_deep.domain.targets.validation import normalize_target_input
+from omega_deep.shared.i18n import _
 
 
 def extract_from_tls_san(tls_cert_san: list[str]) -> list[tuple[str, str]]:
@@ -18,5 +19,5 @@ def extract_from_tls_san(tls_cert_san: list[str]) -> list[tuple[str, str]]:
             continue
         candidate = normalize_target_input(hostname)
         if candidate:
-            results.append((candidate, f"certificat SAN : {entry}"))
+            results.append((candidate, _("certificat SAN : {entry}").format(entry=entry)))
     return results

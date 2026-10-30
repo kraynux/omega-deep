@@ -20,17 +20,18 @@ from omega_deep.interfaces.tui.screens.quit_confirm import QuitConfirmScreen
 from omega_deep.interfaces.tui.screens.scan_setup import ScanSetupScreen
 from omega_deep.interfaces.tui.screens.settings_screen import SettingsScreen
 from omega_deep.interfaces.tui.widgets.home_wordmark import HomeWordmark
+from omega_deep.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_deep.app.dependency_container import DependencyContainer
 
 _MENU_ITEMS: tuple[tuple[str, str], ...] = (
-    ("scan", "Analyser"),
-    ("profiles", "Profils"),
-    ("history", "Historique"),
-    ("settings", "Reglages"),
-    ("help", "Aide"),
-    ("quit", "Quitter"),
+    ("scan", _("Analyser")),
+    ("profiles", _("Profils")),
+    ("history", _("Historique")),
+    ("settings", _("Réglages")),
+    ("help", _("Aide")),
+    ("quit", _("Quitter")),
 )
 
 
@@ -40,9 +41,9 @@ class HomeScreen(Screen[None]):
     dismiss() (rien "en dessous" de cet ecran)."""
 
     BINDINGS: ClassVar[list[BindingType]] = [
-        Binding("escape", "back", "Retour", show=True),
-        Binding("up", "focus_previous_item", "Monter", show=False),
-        Binding("down", "focus_next_item", "Descendre", show=False),
+        Binding("escape", "back", _("Retour"), show=True),
+        Binding("up", "focus_previous_item", _("Monter"), show=False),
+        Binding("down", "focus_next_item", _("Descendre"), show=False),
     ]
 
     def __init__(self, *, container: DependencyContainer) -> None:
@@ -59,7 +60,7 @@ class HomeScreen(Screen[None]):
                     for item_id, label in _MENU_ITEMS:
                         with Container(classes="omega-btn-frame"):
                             yield Button(label.upper(), id=item_id)
-                menu.border_title = "MENU PRINCIPAL"
+                menu.border_title = _("MENU PRINCIPAL")
         yield Footer()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

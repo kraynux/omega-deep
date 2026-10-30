@@ -41,6 +41,7 @@ from omega_deep.domain.targets.models import Host
 from omega_deep.interfaces.tui.screens.show_detail import ShowDetailScreen
 from omega_deep.interfaces.tui.screens.target_validation import TargetValidationScreen
 from omega_deep.interfaces.tui.widgets.progress_panel import ProgressPanel
+from omega_deep.shared.i18n import _, log_message
 
 if TYPE_CHECKING:
     from omega_deep.app.dependency_container import DependencyContainer
@@ -55,7 +56,8 @@ class _RelayHandler(logging.Handler):
         self._callback = callback
 
     def emit(self, record: logging.LogRecord) -> None:
-        self._callback(record.getMessage())
+        # Plan i18n R2 : le fichier journal reste en francais, l'ecran retraduit la ligne.
+        self._callback(log_message(record.msg, record.args))
 
 
 class AnalyzeProgressScreen(Screen[None]):
@@ -81,7 +83,7 @@ class AnalyzeProgressScreen(Screen[None]):
         self._allowed_subnet = allowed_subnet
 
     def compose(self) -> ComposeResult:
-        yield ProgressPanel(message=f"Analyse de {self._target} en cours...")
+        yield ProgressPanel(message=_("Analyse de {target} en cours...").format(target=self._target))
 
     def on_mount(self) -> None:
         self.run_worker(self._run_analyze(), exclusive=True)
@@ -112,7 +114,7 @@ class AnalyzeProgressScreen(Screen[None]):
                 )
                 await asyncio.to_thread(container.scan_repository.save, failed_scan)
                 self.app.notify(
-                    f"Resolution DNS impossible pour '{self._target}'.", title="Analyse echouee", severity="error"
+                    _("Résolution DNS impossible pour '{target}'.").format(target=self._target), title=_("Analyse échouée"), severity="error"
                 )
                 self.dismiss()
                 return

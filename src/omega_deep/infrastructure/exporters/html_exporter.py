@@ -15,6 +15,7 @@ from omega_deep.domain.scans.models import Scan
 from omega_deep.domain.targets.models import Host
 from omega_deep.infrastructure.exporters.graph_layout import render_architecture_svg
 from omega_deep.infrastructure.exporters.html_theme_resolver import resolve_export_palette
+from omega_deep.shared.i18n import TRANSLATOR, _
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
 
@@ -22,12 +23,22 @@ _env = Environment(
     loader=FileSystemLoader(_TEMPLATES_DIR),
     autoescape=select_autoescape(["html"]),
 )
+# Lot N (langue des exports) : texte des gabarits traduit par `_` dans la langue active
+# (celle des exports sous translating_as) ; lang= et dir= du document suivent.
+_env.globals.update(_=_, html_lang=TRANSLATOR.html_lang, html_dir=TRANSLATOR.html_dir)
+# R1 : texte enregistre en francais (titre, impact...) retraduit dans la langue de l'export.
+_env.filters["tr"] = lambda value: _(value) if isinstance(value, str) and value else value
 
 
 def export_html(
-    scan: Scan, hosts: tuple[Host, ...], graph: ArchitectureGraph | None, theme_name: str = DEFAULT_EXPORT_THEME
+    scan: Scan,
+    hosts: tuple[Host, ...],
+    graph: ArchitectureGraph | None,
+    theme_name: str = DEFAULT_EXPORT_THEME,
 ) -> str:
     template = _env.get_template("scan_report.html.j2")
     palette = resolve_export_palette(theme_name)
     graph_svg = render_architecture_svg(graph, palette) if graph and graph.edges else ""
-    return template.render(scan=scan, hosts=hosts, graph=graph, graph_svg=graph_svg, palette=palette)
+    return template.render(
+        scan=scan, hosts=hosts, graph=graph, graph_svg=graph_svg, palette=palette
+    )

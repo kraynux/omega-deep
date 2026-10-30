@@ -21,6 +21,7 @@ from omega_deep.ports.port_prober import PortProber
 from omega_deep.ports.ssh_prober import SshProber
 from omega_deep.ports.tls_prober import TlsProber
 from omega_deep.ports.vnc_prober import VncProber
+from omega_deep.shared.i18n import N_
 
 _logger = logging.getLogger("omega_deep.scan")
 
@@ -46,13 +47,13 @@ def scan_host(
 ) -> Host:
     probed_ports: list[Port] = []
     for port in ports:
-        _logger.info("Scan du port %s/%s...", port, protocol)
+        _logger.info(N_("Scan du port %s/%s..."), port, protocol)
         probed_port = port_prober.probe(target_ip, port, protocol, timeout, retries)
         probed_ports.append(probed_port)
-        _logger.info("Port %s/%s : %s", port, protocol, probed_port.state.value)
+        _logger.info(N_("Port %s/%s : %s"), port, protocol, probed_port.state.value)
 
         if probed_port.state == PortState.OPEN:
-            _logger.info("Identification du service sur le port %s...", port)
+            _logger.info(N_("Identification du service sur le port %s..."), port)
             probed_port.service = probe_service(
                 target_ip=target_ip,
                 port=probed_port.port_number,
@@ -65,7 +66,7 @@ def scan_host(
                 timeout=timeout,
             )
 
-    _logger.info("Host %s : %d port(s) analyse(s).", target_ip, len(probed_ports))
+    _logger.info(N_("Host %s : %d port(s) analysé(s)."), target_ip, len(probed_ports))
     return Host(
         ip=target_ip,
         ports=probed_ports,

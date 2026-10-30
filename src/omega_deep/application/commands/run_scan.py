@@ -33,6 +33,7 @@ from omega_deep.ports.scan_repository import ScanRepository
 from omega_deep.ports.ssh_prober import SshProber
 from omega_deep.ports.tls_prober import TlsProber
 from omega_deep.ports.vnc_prober import VncProber
+from omega_deep.shared.i18n import N_
 
 _logger = logging.getLogger("omega_deep.scan")
 
@@ -85,16 +86,16 @@ def run_scan(
         allowed_subnet=allowed_subnet,
     )
 
-    _logger.info("Resolution DNS de %r...", target)
+    _logger.info(N_("Résolution DNS de %r..."), target)
     try:
         target_ip = dns_resolver.resolve(target)
     except TargetResolutionError as exc:
-        _logger.error("Resolution DNS echouee pour %r : %s", target, exc.reason or exc)
+        _logger.error(N_("Résolution DNS échouée pour %r : %s"), target, exc.reason or exc)
         scan.status = ScanStatus.FAILED
         scan_repository.save(scan)
         return scan, None
 
-    _logger.info("Cible resolue : %s -> %s", target, target_ip)
+    _logger.info(N_("Cible résolue : %s -> %s"), target, target_ip)
     scan.target_ip = target_ip
     if not scan.root_target_ip:
         scan.root_target_ip = target_ip

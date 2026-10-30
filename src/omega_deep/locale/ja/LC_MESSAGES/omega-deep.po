@@ -1,0 +1,278 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omega-deep\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Omega-Status: testing\n"
+
+#: src/omega_deep/application/commands/clear_directory.py:52
+msgid "contient l'installation de omega-deep"
+msgstr "omega-deep のインストールを含みます"
+
+#: src/omega_deep/application/commands/scan_host.py:69
+#, python-format
+msgid "Host %s : %d port(s) analysé(s)."
+msgstr "ホスト %s：%d 個のポートを解析しました。"
+
+#: src/omega_deep/domain/architecture/service.py:35
+#, python-brace-format
+msgid "découvert via {discovery_source}"
+msgstr "{discovery_source} により発見"
+
+#: src/omega_deep/infrastructure/discovery/header_extractor.py:34
+#, python-brace-format
+msgid "header {header_name}: {segment}"
+msgstr "ヘッダー {header_name}：{segment}"
+
+#: src/omega_deep/infrastructure/discovery/html_link_extractor.py:28
+#, python-brace-format
+msgid "lien HTML : {url}"
+msgstr "HTML リンク：{url}"
+
+#: src/omega_deep/infrastructure/discovery/redirect_extractor.py:21
+#, python-brace-format
+msgid "redirection Location: {location}"
+msgstr "リダイレクト Location：{location}"
+
+#: src/omega_deep/infrastructure/discovery/tls_san_extractor.py:22
+#, python-brace-format
+msgid "certificat SAN : {entry}"
+msgstr "証明書の SAN：{entry}"
+
+#: src/omega_deep/infrastructure/storage/sqlite/scan_repository.py:124
+msgid "échec de sauvegarde des hosts pour le scan {scan_id!r}"
+msgstr "スキャン {scan_id!r} のホストの保存に失敗しました"
+
+#: src/omega_deep/infrastructure/storage/sqlite/scan_repository.py:356
+msgid "échec de sauvegarde du graphe pour le scan {scan_id!r}"
+msgstr "スキャン {scan_id!r} のグラフの保存に失敗しました"
+
+#: src/omega_deep/interfaces/tui/app.py:39
+msgid "🔍 OMEGA-DEEP"
+msgstr "🔍 OMEGA-DEEP"
+
+#: src/omega_deep/interfaces/tui/screens/compare.py:35
+msgid "COMPARAISON D'ANALYSES"
+msgstr "分析の比較"
+
+#: src/omega_deep/interfaces/tui/screens/export_dialog.py:45
+msgid "EXPORTER L'ANALYSE"
+msgstr "分析のエクスポート"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+msgid "Analyser"
+msgstr "分析"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
+msgstr "ルートターゲット（IP またはホスト名）、ポートプロファイル、発見のガードレール（最大深度、追加ターゲット数、許可するサブネット）を入力し、分析を開始します。発見された各ターゲットは、スキャンの前に承認のため提示されます（自動的にスキャンされるターゲットは一切ありません）。"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
+msgstr "過去のすべての分析を一覧表示：完全な詳細（ホスト + アーキテクチャグラフ）、2 つの分析の比較、または同じルートターゲットでの再実行。"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
+msgstr "分析の詳細から：JSON（完全な構造）、テキスト（簡潔なレポート）、HTML（アーキテクチャグラフの図を含む視覚的なレポート、エクスポートのテーマはインターフェースのテーマとは独立）。"
+
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
+msgstr "Omega-deep はルートターゲット周辺のアーキテクチャを発見してマッピングします（複数ターゲットの分析）：発見された各ターゲット（HTTP リンク、公開されたサービス）はユーザーに提案され、明示的な承認なしにスキャンされることはありません（フェイルセーフ：確認されないものはすべて拒否）。ガードレール（深度、ターゲット数、サブネット）が常に発見の範囲を制限します。"
+
+#: src/omega_deep/interfaces/tui/screens/history.py:43
+msgid "Filtrer par cible racine..."
+msgstr "ルートターゲットで絞り込み..."
+
+#: src/omega_deep/interfaces/tui/screens/history.py:112
+msgid "Impossible de rejouer cette analyse (profil inconnu)."
+msgstr "この分析は再実行できません（不明なプロファイル）。"
+
+#: src/omega_deep/interfaces/tui/screens/quit_confirm.py:21
+msgid "QUITTER OMEGA-DEEP ?"
+msgstr "OMEGA-DEEP を終了しますか？"
+
+#: src/omega_deep/interfaces/tui/screens/scan_progress.py:86
+#, python-brace-format
+msgid "Analyse de {target} en cours..."
+msgstr "{target} を分析中..."
+
+#: src/omega_deep/interfaces/tui/screens/scan_progress.py:117
+msgid "Analyse échouée"
+msgstr "分析失敗"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:61
+msgid "ANALYSER UNE CIBLE"
+msgstr "ターゲットを分析"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:63 src/omega_deep/interfaces/tui/widgets/history_table.py:19
+msgid "Cible racine"
+msgstr "ルートターゲット"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:69
+#, python-brace-format
+msgid "* {name}"
+msgstr "* {name}"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:74
+msgid "Garde-fous de découverte"
+msgstr "発見のガードレール"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:77
+msgid "Nombre max de cibles supplémentaires"
+msgstr "追加ターゲットの最大数"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:79
+msgid "Sous-réseau autorisé (ex. 192.168.1.0/24, facultatif)"
+msgstr "許可するサブネット（例：192.168.1.0/24、任意）"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:108
+msgid "Profondeur/nombre de cibles : entiers attendus."
+msgstr "深度/ターゲット数：整数を指定してください。"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:111
+msgid "Profondeur >= 1 et nombre de cibles >= 0 attendus."
+msgstr "深度 >= 1、ターゲット数 >= 0 を指定してください。"
+
+#: src/omega_deep/interfaces/tui/screens/scan_setup.py:138
+msgid "Ce profil est exhaustif (union de tous les profils système) : l'analyse peut être longue. Continuer ?"
+msgstr "このプロファイルは網羅的です（すべてのシステムプロファイルの和集合）：分析に時間がかかる場合があります。続行しますか？"
+
+#: src/omega_deep/interfaces/tui/screens/settings_screen.py:126
+msgid "Toutes les analyses persistées seront définitivement supprimées."
+msgstr "保存されたすべての分析が完全に削除されます。"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:54
+#, python-brace-format
+msgid "ANALYSE {id}"
+msgstr "分析 {id}"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:56
+#, python-brace-format
+msgid "Cible racine : {target} ({target_ip}) — profil {value} — statut {value2} — {count} cible(s) découverte(s)"
+msgstr "ルートターゲット：{target}（{target_ip}）— プロファイル {value} — 状態 {value2} — 発見したターゲット {count} 件"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:61
+msgid "Hosts"
+msgstr "ホスト"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:64
+msgid "Ports / services du host sélectionné"
+msgstr "選択したホストのポート / サービス"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:67 src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:214
+msgid "Graphe d'architecture"
+msgstr "アーキテクチャグラフ"
+
+#: src/omega_deep/interfaces/tui/screens/show_detail.py:85
+msgid "Aucune relation détectée."
+msgstr "関係は検出されませんでした。"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:31 src/omega_deep/interfaces/tui/screens/target_validation.py:56
+msgid "Tout rejeter"
+msgstr "すべて拒否"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:41
+msgid "CIBLES DÉCOUVERTES"
+msgstr "発見したターゲット"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:43
+#, python-brace-format
+msgid "{count} cible(s) découverte(s) depuis {parent_ip}. Aucune n'est scannée sans acceptation explicite."
+msgstr "{parent_ip} から {count} 件のターゲットを発見しました。明示的に承認されるまでスキャンは行いません。"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:52
+msgid "Basculer"
+msgstr "切り替え"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:54
+msgid "Tout accepter"
+msgstr "すべて承認"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:58
+msgid "Valider"
+msgstr "確定"
+
+#: src/omega_deep/interfaces/tui/screens/target_validation.py:68
+msgid "(aucune preuve associée)"
+msgstr "（関連する根拠なし）"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:15
+msgid "REJETER"
+msgstr "拒否"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:16
+msgid "ACCEPTER"
+msgstr "承認"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:30 src/omega_deep/interfaces/tui/widgets/hosts_table.py:21
+msgid "Découvert depuis"
+msgstr "発見元"
+
+#: src/omega_deep/interfaces/tui/widgets/discovery_table.py:31
+msgid "Décision"
+msgstr "判断"
+
+#: src/omega_deep/interfaces/tui/widgets/hosts_table.py:21
+msgid "Hostname"
+msgstr "ホスト名"
+
+#: src/omega_deep/interfaces/tui/widgets/hosts_table.py:21
+msgid "Profondeur"
+msgstr "深度"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:17
+msgid "=== OMEGA-DEEP — Rapport d'analyse ==="
+msgstr "=== OMEGA-DEEP — 分析レポート ==="
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:22
+#, python-brace-format
+msgid "Mode       : {value}"
+msgstr "モード     : {value}"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:32 src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:141
+#, python-brace-format
+msgid "Cible découverte (profondeur {depth_level})"
+msgstr "発見したターゲット（深度 {depth_level}）"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:32 src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:141
+msgid "Cible initiale"
+msgstr "初期ターゲット"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:36
+#, python-brace-format
+msgid "    découverte depuis {discovered_from} via {discovery_source} [{value}]"
+msgstr "    {discovered_from} から {discovery_source} により発見 [{value}]"
+
+#: src/omega_deep/infrastructure/exporters/text_exporter.py:56
+msgid "=== Graphe d'architecture ==="
+msgstr "=== アーキテクチャグラフ ==="
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:6
+#, python-brace-format
+msgid "OMEGA-DEEP — Rapport d'analyse {id}"
+msgstr "OMEGA-DEEP — 分析レポート {id}"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:116
+msgid "OMEGA-DEEP — Rapport d'analyse"
+msgstr "OMEGA-DEEP — 分析レポート"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:131
+msgid "Host(s)"
+msgstr "ホスト"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:132
+msgid "Ports scannés (total)"
+msgstr "スキャンしたポート（合計）"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:134
+msgid "Relation(s)"
+msgstr "関係"
+
+#: src/omega_deep/infrastructure/exporters/templates/scan_report.html.j2:145
+#, python-brace-format
+msgid "découverte depuis {discovered_from} via {discovery_source} [{discovery_confidence}]"
+msgstr "{discovered_from} から {discovery_source} により発見 [{discovery_confidence}]"

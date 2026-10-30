@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from omega_deep.domain.profiles.models import Profile
 from omega_deep.domain.profiles.policies import normalize_ports
+from omega_deep.shared.i18n import _
 
 _REMOTE_DESKTOP_RANGE = list(range(5900, 5911))
 _RUSTDESK_RANGE = list(range(59000, 59011))
@@ -17,13 +18,13 @@ _RUSTDESK_RANGE = list(range(59000, 59011))
 SYSTEM_PROFILES: dict[str, Profile] = {
     "minimal": Profile(
         name="minimal",
-        description="Scan ultra-rapide : SSH + HTTP + HTTPS",
+        description=_("Scan ultra-rapide : SSH + HTTP + HTTPS"),
         ports=[22, 80, 443],
         pinned=True,
     ),
     "classic": Profile(
         name="classic",
-        description="Services classiques Internet / LAN",
+        description=_("Services classiques Internet / LAN"),
         ports=[
             21, 22, 23, 25, 53, 67, 68, 69, 80, 110, 111, 123, 135, 137, 138,
             139, 143, 161, 162, 389, 443, 445, 514, 587, 636, 993, 995, 1433,
@@ -33,49 +34,49 @@ SYSTEM_PROFILES: dict[str, Profile] = {
     ),
     "web": Profile(
         name="web",
-        description="Services web et alternatives",
+        description=_("Services web et alternatives"),
         ports=[80, 443, 8000, 8008, 8080, 8081, 8082, 8443, 8880, 8888, 9000, 9090, 9443, 10000, 10080, 10443],
         pinned=False,
     ),
     "db": Profile(
         name="db",
-        description="Bases de donnees et services de donnees",
+        description=_("Bases de données et services de données"),
         ports=[1433, 1521, 3306, 5432, 5984, 6379, 7000, 7001, 7474, 7687, 8529, 9042, 27017, 27018, 27019, 28015],
         pinned=False,
     ),
     "remote": Profile(
         name="remote",
-        description="Acces distants (shell, bureau, RustDesk)",
+        description=_("Accès distants (shell, bureau, RustDesk)"),
         ports=[22, 23, 3389, *_REMOTE_DESKTOP_RANGE, *_RUSTDESK_RANGE, 21114, 21115, 21116, 21117],
         pinned=False,
     ),
     "mail": Profile(
         name="mail",
-        description="Services de messagerie",
+        description=_("Services de messagerie"),
         ports=[25, 110, 143, 465, 587, 993, 995, 2525, 4190],
         pinned=False,
     ),
     "dns": Profile(
         name="dns",
-        description="Services DNS",
+        description=_("Services DNS"),
         ports=[53, 853, 5353],
         pinned=False,
     ),
     "iot": Profile(
         name="iot",
-        description="Equipements IoT, cameras, box, domotique",
+        description=_("Équipements IoT, caméras, box, domotique"),
         ports=[80, 443, 554, 8554, 1935, 8080, 8443, 8888, 5000, 5001, 8000, 8008, 1883, 8883, 18080],
         pinned=False,
     ),
     "dev": Profile(
         name="dev",
-        description="Environnements de dev / lab",
+        description=_("Environnements de dev / lab"),
         ports=[22, 80, 443, 3000, 3306, 5432, 6379, 27017, 8000, 8008, 8080, 8443, 9000, 9090, 5601, 9200, 9300, 5672, 15672, 8161, 10000],
         pinned=False,
     ),
     "docker": Profile(
         name="docker",
-        description="Docker, Swarm et services courants en containers",
+        description=_("Docker, Swarm et services courants en containers"),
         ports=[2375, 2376, 2377, 4789, 7946, 80, 443, 8080, 8443, 9000, 9090, 5672, 15672, 9200, 9300, 3306, 5432, 27017, 6379, 5601, 8161],
         pinned=False,
     ),
@@ -94,7 +95,7 @@ def build_complete_profile() -> Profile:
 
     return Profile(
         name="complet",
-        description="TOUS les profils systeme (scan exhaustif, long)",
+        description=_("TOUS les profils système (scan exhaustif, long)"),
         ports=normalize_ports(all_ports),
         pinned=False,
     )

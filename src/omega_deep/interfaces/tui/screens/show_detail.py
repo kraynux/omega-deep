@@ -25,6 +25,7 @@ from omega_deep.interfaces.tui.screens._base import OmegaScreen
 from omega_deep.interfaces.tui.screens.export_dialog import ExportDialogScreen
 from omega_deep.interfaces.tui.widgets.hosts_table import HostsTable
 from omega_deep.interfaces.tui.widgets.services_table import ServicesTable
+from omega_deep.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_deep.app.dependency_container import DependencyContainer
@@ -50,28 +51,28 @@ class ShowDetailScreen(OmegaScreen):
         scan = self._scan
         yield Header()
         with VerticalScroll(classes="omega-panel"):
-            yield Static(f"ANALYSE {scan.id}", classes="omega-title")
+            yield Static(_("ANALYSE {id}").format(id=scan.id), classes="omega-title")
             yield Static(
-                f"Cible racine : {scan.target} ({scan.target_ip}) — profil {scan.profile_name or '-'} — "
-                f"statut {scan.status.value} — {len(scan.discovered_targets)} cible(s) decouverte(s)",
+                _("Cible racine : {target} ({target_ip}) — profil {value} — statut {value2} — "
+                  "{count} cible(s) découverte(s)").format(target=scan.target, target_ip=scan.target_ip, value=scan.profile_name or '-', value2=scan.status.value, count=len(scan.discovered_targets)),
                 classes="omega-subtitle",
             )
 
-            yield Static("Hosts", classes="omega-subtitle")
+            yield Static(_("Hosts"), classes="omega-subtitle")
             yield HostsTable(id="hosts-table")
 
-            yield Static("Ports / services du host selectionne", classes="omega-subtitle")
+            yield Static(_("Ports / services du host sélectionné"), classes="omega-subtitle")
             yield ServicesTable(id="services-table")
 
-            yield Static("Graphe d'architecture", classes="omega-subtitle")
+            yield Static(_("Graphe d'architecture"), classes="omega-subtitle")
             with Vertical(id="graph-panel"):
                 yield Static(self._graph_lines(), id="graph-lines")
 
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Exporter", id="export", variant="primary")
+                    yield Button(_("Exporter"), id="export", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -81,7 +82,7 @@ class ShowDetailScreen(OmegaScreen):
     def _graph_lines(self) -> str:
         graph = self._graph
         if graph is None or not graph.edges:
-            return "Aucune relation detectee."
+            return _("Aucune relation détectée.")
         return "\n".join(
             f"{edge.source_ip} -[{edge.relation_type}, {edge.confidence.value}]-> {edge.target_ip}"
             for edge in graph.edges

@@ -6,6 +6,7 @@ headers deja collecte."""
 from __future__ import annotations
 
 from omega_deep.domain.targets.validation import normalize_target_input
+from omega_deep.shared.i18n import _
 
 _DISCOVERY_HEADERS = ("x-forwarded-host", "x-real-ip", "x-backend-server", "via")
 
@@ -30,6 +31,6 @@ def extract_from_headers(headers: dict[str, str]) -> list[tuple[str, str]]:
             token = segment.split()[-1]
             candidate = normalize_target_input(token)
             if candidate:
-                results.append((candidate, f"header {header_name}: {segment}"))
+                results.append((candidate, _("header {header_name}: {segment}").format(header_name=header_name, segment=segment)))
 
     return results

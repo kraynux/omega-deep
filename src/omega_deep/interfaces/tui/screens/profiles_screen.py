@@ -30,6 +30,7 @@ from omega_deep.domain.profiles.policies import parse_port_spec
 from omega_deep.interfaces.tui.screens._base import OmegaScreen
 from omega_deep.interfaces.tui.screens.confirm import ConfirmScreen
 from omega_deep.interfaces.tui.widgets.profiles_table import ProfilesTable
+from omega_deep.shared.i18n import _
 
 if TYPE_CHECKING:
     from omega_deep.app.dependency_container import DependencyContainer
@@ -46,20 +47,20 @@ class ProfilesScreen(OmegaScreen):
     def compose(self) -> ComposeResult:
         yield Header()
         with Vertical(classes="omega-panel"):
-            yield Static("PROFILS", classes="omega-title")
+            yield Static(_("PROFILS"), classes="omega-title")
             yield ProfilesTable(id="profiles-table")
-            yield Input(placeholder="Nom", id="name-input")
-            yield Input(placeholder="Description", id="description-input")
-            yield Input(placeholder="Ports : ex. 80  /  22,443,8080  /  1000-2000", id="ports-input")
+            yield Input(placeholder=_("Nom"), id="name-input")
+            yield Input(placeholder=_("Description"), id="description-input")
+            yield Input(placeholder=_("Ports : ex. 80  /  22,443,8080  /  1000-2000"), id="ports-input")
             with Horizontal(classes="omega-actions"):
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Creer", id="create", variant="primary")
+                    yield Button(_("Créer"), id="create", variant="primary")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Modifier", id="update")
+                    yield Button(_("Modifier"), id="update")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Supprimer", id="delete", variant="error")
+                    yield Button(_("Supprimer"), id="delete", variant="error")
                 with Container(classes="omega-btn-frame"):
-                    yield Button("Retour", id="back")
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -94,19 +95,19 @@ class ProfilesScreen(OmegaScreen):
     def _read_ports(self) -> list[int] | None:
         raw = self.query_one("#ports-input", Input).value.strip()
         if not raw:
-            self.app.notify("Saisissez au moins un port.", severity="warning")
+            self.app.notify(_("Saisissez au moins un port."), severity="warning")
             return None
         try:
             return parse_port_spec(raw)
         except (ValueError, InvalidPortError, DuplicatePortsError) as exc:
-            self.app.notify(f"Ports invalides : {exc}", severity="warning")
+            self.app.notify(_("Ports invalides : {exc}").format(exc=exc), severity="warning")
             return None
 
     def _create(self) -> None:
         name = self.query_one("#name-input", Input).value.strip()
         description = self.query_one("#description-input", Input).value.strip()
         if not name:
-            self.app.notify("Saisissez un nom.", severity="warning")
+            self.app.notify(_("Saisissez un nom."), severity="warning")
             return
         ports = self._read_ports()
         if ports is None:
@@ -121,7 +122,7 @@ class ProfilesScreen(OmegaScreen):
 
     def _update(self) -> None:
         if self._selected_name is None:
-            self.app.notify("Selectionnez d'abord un profil.", severity="warning")
+            self.app.notify(_("Sélectionnez d'abord un profil."), severity="warning")
             return
         description = self.query_one("#description-input", Input).value.strip()
         ports = self._read_ports()
@@ -137,7 +138,7 @@ class ProfilesScreen(OmegaScreen):
 
     def _delete(self) -> None:
         if self._selected_name is None:
-            self.app.notify("Selectionnez d'abord un profil.", severity="warning")
+            self.app.notify(_("Sélectionnez d'abord un profil."), severity="warning")
             return
         name = self._selected_name
 
@@ -153,6 +154,7 @@ class ProfilesScreen(OmegaScreen):
             self._refresh()
 
         self.app.push_screen(
-            ConfirmScreen(title="SUPPRIMER LE PROFIL ?", message=f"Le profil '{name}' sera definitivement supprime."),
+            ConfirmScreen(title=_("SUPPRIMER LE PROFIL ?"), message=_("Le profil '{name}' sera "
+                                                                   "définitivement supprimé.").format(name=name)),
             _delete_if_confirmed,
         )

@@ -8,27 +8,64 @@ from __future__ import annotations
 import sys
 
 
-def main(argv: list[str] | None = None) -> int:
-    from omega_deep.app.bootstrap import bootstrap
+def install_language() -> None:
+    """Langue de l'interface installee AVANT d'importer la TUI (plan i18n de la suite §5) :
+    les textes traduits au chargement d'un module (raccourcis, titres) sont deja dans la
+    bonne langue. Jamais pour la ligne de commande (R3 : elle reste en francais)."""
+    import os
 
+    from omega_lib.infrastructure.terminal.detector import SystemTerminalDetector
+
+    from omega_deep.infrastructure.config import paths
+    from omega_deep.infrastructure.storage.files.json_settings_store import JsonSettingsStore
+    from omega_deep.shared.i18n import LANGUAGE
+
+    LANGUAGE.install(
+        settings_store=JsonSettingsStore(paths.default_settings_path(paths.resolve_var_dir())),
+        environ=os.environ,
+        terminal_family=SystemTerminalDetector().detect().family,
+    )
+
+
+def restart_for_language(code: str) -> None:  # pragma: no cover - remplace le processus
+    """Meme Python, meme module : seule l'interface redemarre, dans la langue choisie."""
+    import os
+
+    from omega_deep.shared.i18n import LANGUAGE
+
+    LANGUAGE.prepare_restart_environment(os.environ, code)
+    os.execv(sys.executable, [sys.executable, "-m", "omega_deep"])
+
+
+def main(argv: list[str] | None = None) -> int:
     effective_argv = sys.argv[1:] if argv is None else argv
     is_tui = not effective_argv
+    if is_tui:
+        install_language()
+
+    from omega_deep.app.bootstrap import bootstrap
+
     # console_logging=False sous le TUI : Textual controle l'ecran en mode
     # alternatif, une ecriture de log directe sur stderr corromprait son
     # rendu (voir app/bootstrap.py).
     container = bootstrap(console_logging=not is_tui)
+    pending_language: str | None = None
     try:
         if is_tui:
             from omega_deep.interfaces.tui.app import OmegaDeepApp
 
-            OmegaDeepApp(container).run()
-            return 0
+            app = OmegaDeepApp(container)
+            app.run()
+            pending_language = app.pending_language
+        else:
+            from omega_deep.interfaces.cli.main import run as run_cli
 
-        from omega_deep.interfaces.cli.main import run as run_cli
-
-        return run_cli(container, effective_argv)
+            return run_cli(container, effective_argv)
     finally:
         container.close()
+    if pending_language is not None:
+        restart_for_language(pending_language)  # apres container.close() : base fermee proprement
+    return 0
 
 
 if __name__ == "__main__":

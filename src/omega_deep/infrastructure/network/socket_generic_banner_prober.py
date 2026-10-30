@@ -8,6 +8,7 @@ import socket
 from omega_deep.core.enums import ConfidenceLevel
 from omega_deep.domain.services.models import Service
 from omega_deep.domain.services.policies import parse_generic_banner
+from omega_deep.shared.i18n import _
 
 
 class SocketGenericBannerProber:
@@ -19,10 +20,10 @@ class SocketGenericBannerProber:
                 sock.settimeout(timeout)
                 raw = sock.recv(256)
         except OSError as exc:
-            return Service(evidence=[f"echec de connexion : {exc}"])
+            return Service(evidence=[_("échec de connexion : {exc}").format(exc=exc)])
 
         if not raw:
-            return Service(evidence=["connexion etablie, aucun banner recu"])
+            return Service(evidence=[_("connexion établie, aucun banner reçu")])
 
         banner = raw.decode("ascii", errors="replace").strip()
         software, version = parse_generic_banner(banner)
@@ -31,5 +32,5 @@ class SocketGenericBannerProber:
             software_confidence=ConfidenceLevel.DECLARED if software else ConfidenceLevel.UNKNOWN,
             version=version,
             version_confidence=ConfidenceLevel.DECLARED if version else ConfidenceLevel.UNKNOWN,
-            evidence=[f"banner : {banner}"],
+            evidence=[_("banner : {banner}").format(banner=banner)],
         )

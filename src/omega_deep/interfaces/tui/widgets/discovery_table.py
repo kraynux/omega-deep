@@ -10,9 +10,10 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_deep.domain.discovery.models import DiscoveredTarget
+from omega_deep.shared.i18n import _
 
-_REJECT_LABEL = "REJETER"
-_ACCEPT_LABEL = "ACCEPTER"
+_REJECT_LABEL = _("REJETER")
+_ACCEPT_LABEL = _("ACCEPTER")
 _DECISION_COLUMN_KEY = "decision"
 
 
@@ -23,11 +24,11 @@ class DiscoveryTable(DataTable[str]):
     def on_mount(self) -> None:
         self.cursor_type = "row"
         self.add_columns(
-            ("Cible", "target"),
-            ("Source", "source"),
-            ("Confiance", "confidence"),
-            ("Decouvert depuis", "discovered_from"),
-            ("Decision", _DECISION_COLUMN_KEY),
+            (_("Cible"), "target"),
+            (_("Source"), "source"),
+            (_("Confiance"), "confidence"),
+            (_("Découvert depuis"), "discovered_from"),
+            (_("Décision"), _DECISION_COLUMN_KEY),
         )
 
     def set_targets(self, targets: list[DiscoveredTarget], decisions: dict[str, bool]) -> None:

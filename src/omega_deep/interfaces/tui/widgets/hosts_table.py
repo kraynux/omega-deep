@@ -9,6 +9,7 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_deep.domain.targets.models import Host
+from omega_deep.shared.i18n import _
 
 
 class HostsTable(DataTable[str]):
@@ -17,7 +18,7 @@ class HostsTable(DataTable[str]):
 
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("IP", "Hostname", "Profondeur", "Decouvert depuis", "Source")
+        self.add_columns(_("IP"), _("Hostname"), _("Profondeur"), _("Découvert depuis"), _("Source"))
 
     def set_hosts(self, hosts: tuple[Host, ...]) -> None:
         self.clear()

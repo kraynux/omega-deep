@@ -7,12 +7,13 @@ from __future__ import annotations
 from textual.widgets import DataTable
 
 from omega_deep.domain.targets.models import Host
+from omega_deep.shared.i18n import _
 
 
 class ServicesTable(DataTable[str]):
     def on_mount(self) -> None:
         self.cursor_type = "row"
-        self.add_columns("Port", "Etat", "Service", "Logiciel", "Role")
+        self.add_columns(_("Port"), _("État"), _("Service"), _("Logiciel"), _("Rôle"))
 
     def set_host(self, host: Host | None) -> None:
         self.clear()

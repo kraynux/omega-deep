@@ -11,6 +11,7 @@ from __future__ import annotations
 import re
 
 from omega_deep.domain.targets.validation import normalize_target_input
+from omega_deep.shared.i18n import _
 
 _ABSOLUTE_LINK_RE = re.compile(r'(?:href|src)\s*=\s*["\']?(https?://[^"\'\s>]+)', re.IGNORECASE)
 
@@ -24,5 +25,5 @@ def extract_from_html_links(html_body: str | None) -> list[tuple[str, str]]:
         url = match.group(1)
         candidate = normalize_target_input(url)
         if candidate:
-            results.append((candidate, f"lien HTML : {url}"))
+            results.append((candidate, _("lien HTML : {url}").format(url=url)))
     return results

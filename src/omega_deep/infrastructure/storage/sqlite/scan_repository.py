@@ -23,6 +23,7 @@ from omega_deep.domain.scans.models import Scan
 from omega_deep.domain.services.models import Port, RoleElement, Service, TransportLayer
 from omega_deep.domain.targets.models import Host
 from omega_deep.infrastructure.exceptions import StorageError
+from omega_deep.shared.i18n import _
 
 
 class SqliteScanRepository:
@@ -64,7 +65,7 @@ class SqliteScanRepository:
             )
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde du scan {scan.id!r}") from exc
+            raise StorageError(_("échec de sauvegarde du scan {id!r}").format(id=scan.id)) from exc
 
     def get(self, scan_id: str) -> Scan | None:
         row = self._connection.execute("SELECT * FROM scans WHERE id = ?", (scan_id,)).fetchone()
@@ -120,7 +121,7 @@ class SqliteScanRepository:
                 self._insert_host(cursor, scan_id, host)
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde des hosts pour le scan {scan_id!r}") from exc
+            raise StorageError(_("échec de sauvegarde des hosts pour le scan {scan_id!r}").format(scan_id=scan_id)) from exc
 
     def _insert_host(self, cursor: sqlite3.Cursor, scan_id: str, host: Host) -> None:
         host_id = new_id()
@@ -352,7 +353,7 @@ class SqliteScanRepository:
             )
             self._connection.commit()
         except sqlite3.Error as exc:
-            raise StorageError(f"echec de sauvegarde du graphe pour le scan {scan_id!r}") from exc
+            raise StorageError(_("échec de sauvegarde du graphe pour le scan {scan_id!r}").format(scan_id=scan_id)) from exc
 
     def get_graph(self, scan_id: str) -> ArchitectureGraph | None:
         row = self._connection.execute(
