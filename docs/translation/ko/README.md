@@ -7,8 +7,7 @@
 
 **다중 대상 아키텍처 분석 (발견 + 안전 제한 + 그래프)**
 
-> **Omega-server**를 위해 **kraynux**가 개발 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [Omega-Server](https://kraynux.snake-mackarel.ts.net)를 위해 [kraynux](https://github.com/kraynux)가 개발   
 
 공식 페이지: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; 미리보기: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

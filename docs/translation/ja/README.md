@@ -7,8 +7,7 @@
 
 **複数ターゲットのアーキテクチャ解析（発見 + 安全上の制限 + グラフ）**
 
-> **Omega-server** のために **kraynux** が開発 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [Omega-Server](https://kraynux.snake-mackarel.ts.net) のために [kraynux](https://github.com/kraynux) が開発   
 
 公式ページ：[OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; スクリーンショット：[Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

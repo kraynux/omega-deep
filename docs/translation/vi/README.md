@@ -7,8 +7,7 @@
 
 **Phân tích kiến trúc nhiều mục tiêu (khám phá + giới hạn an toàn + đồ thị)**
 
-> Được **kraynux** xây dựng cho **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Được [kraynux](https://github.com/kraynux) xây dựng cho [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Trang chính thức: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Ảnh chụp màn hình: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

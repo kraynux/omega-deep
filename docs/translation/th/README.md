@@ -7,8 +7,7 @@
 
 **การวิเคราะห์สถาปัตยกรรมหลายเป้าหมาย (การค้นพบ + ขีดจำกัดความปลอดภัย + กราฟ)**
 
-> พัฒนาโดย **kraynux** สำหรับ **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> พัฒนาโดย [kraynux](https://github.com/kraynux) สำหรับ [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 หน้าทางการ: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; ภาพหน้าจอ: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

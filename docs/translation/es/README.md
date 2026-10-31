@@ -7,8 +7,7 @@
 
 **Análisis de arquitectura multiobjetivo (descubrimiento + salvaguardas + grafo)**
 
-> Desarrollado por **kraynux** para **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Desarrollado por [kraynux](https://github.com/kraynux) para [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Página oficial: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Capturas: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

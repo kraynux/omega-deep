@@ -7,8 +7,7 @@
 
 **Analyse d'architecture multi-cibles (découverte + garde-fous + graphe)**
 
-> Élaboré par **kraynux** pour **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Élaboré par [kraynux](https://github.com/kraynux) pour [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Page officiel : [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Apercu : [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

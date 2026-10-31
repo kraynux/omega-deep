@@ -7,8 +7,7 @@
 
 **多目标架构分析（发现 + 安全限制 + 关系图）**
 
-> 由 **kraynux** 为 **Omega-server** 打造 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> 由 [kraynux](https://github.com/kraynux) 为 [Omega-Server](https://kraynux.snake-mackarel.ts.net) 打造   
 
 官方页面：[OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; 截图：[Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

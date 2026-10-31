@@ -7,8 +7,7 @@
 
 **تحليل بنية متعددة الأهداف (اكتشاف + حدود أمان + مخطط علاقات)**
 
-> طوّره **kraynux** من أجل **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> طوّره [kraynux](https://github.com/kraynux) من أجل [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 الصفحة الرسمية: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; معاينة: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

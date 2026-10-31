@@ -7,8 +7,7 @@
 
 **बहु-लक्ष्य आर्किटेक्चर विश्लेषण (खोज + सुरक्षा सीमाएँ + ग्राफ़)**
 
-> **Omega-server** के लिए **kraynux** द्वारा निर्मित 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> [Omega-Server](https://kraynux.snake-mackarel.ts.net) के लिए [kraynux](https://github.com/kraynux) द्वारा निर्मित   
 
 आधिकारिक पेज: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; झलक: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

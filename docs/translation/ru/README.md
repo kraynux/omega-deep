@@ -7,8 +7,7 @@
 
 **Анализ архитектуры по нескольким целям (обнаружение + защитные рамки + граф)**
 
-> Создано **kraynux** для **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Создано [kraynux](https://github.com/kraynux) для [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Официальная страница: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Скриншоты: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

@@ -7,8 +7,7 @@
 
 **Analisi di architettura su più destinazioni (scoperta + salvaguardie + grafo)**
 
-> Realizzato da **kraynux** per **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Realizzato da [kraynux](https://github.com/kraynux) per [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Pagina ufficiale: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Anteprima: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 

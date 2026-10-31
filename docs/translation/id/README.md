@@ -7,8 +7,7 @@
 
 **Analisis arsitektur multi-target (penemuan + pengaman + graf)**
 
-> Dibuat oleh **kraynux** untuk **Omega-server** 
-[https://kraynux.snake-mackarel.ts.net](https://kraynux.snake-mackarel.ts.net)
+> Dibuat oleh [kraynux](https://github.com/kraynux) untuk [Omega-Server](https://kraynux.snake-mackarel.ts.net)   
 
 Halaman resmi: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &nbsp; Pratinjau: [Screenshots](https://kraynux.snake-mackarel.ts.net/omega-deep/screenshots/)  
 
