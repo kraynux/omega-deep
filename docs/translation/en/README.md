@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 kraynux - kraynux@proton.me - MIT License (see LICENSE file) -->
 <div align="center">
-  <img src="../../assets/omega-deep.png" alt="Omega-Deep" width="384">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-deep.png" alt="Omega-Deep" width="512">
 </div>
 
 # 🖧 OMEGA-DEEP
