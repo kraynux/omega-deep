@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_deep/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-deep"
@@ -63,23 +63,23 @@ msgstr "PORÓWNANIE ANALIZ"
 msgid "EXPORTER L'ANALYSE"
 msgstr "EKSPORTUJ ANALIZĘ"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:29 src/omega_deep/interfaces/tui/screens/home.py:29
 msgid "Analyser"
 msgstr "Analizuj"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:31
 msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
 msgstr "Podaj cel główny (IP lub nazwa hosta), profil portów i zabezpieczenia wykrywania (maksymalna głębokość, liczba dodatkowych celów, dozwolona podsieć), a następnie uruchom analizę. Każdy wykryty cel jest przedstawiany do zatwierdzenia przed jakimkolwiek skanem (żaden cel nigdy nie jest skanowany automatycznie)."
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:40
 msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
 msgstr "Lista wszystkich wcześniejszych analiz: pełne szczegóły (hosty + graf architektury), porównanie dwóch analiz lub ponowne uruchomienie analizy na tym samym celu głównym."
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:48
 msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
 msgstr "Ze szczegółów analizy: JSON (pełna struktura), tekst (zwięzły raport) lub HTML (raport wizualny z diagramem grafu architektury, motyw eksportu niezależny od motywu interfejsu)."
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:56
 msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
 msgstr "Omega-deep wykrywa i mapuje architekturę wokół celu głównego (analiza wielu celów): każdy wykryty cel (link HTTP, ogłaszana usługa) jest proponowany użytkownikowi — nigdy nie jest skanowany bez wyraźnego zatwierdzenia (fail-safe: wszystko, co nie zostało potwierdzone, jest odrzucane). Zabezpieczenia (głębokość, liczba celów, podsieć) zawsze ograniczają zasięg wykrywania."
 

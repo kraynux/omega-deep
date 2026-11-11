@@ -24,6 +24,13 @@ Official page: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &
 
 **Omega-deep** does everything `omega-check` does on a single target (port scan, service identification, roles, WAF, TLS) and adds **discovery of further targets** from the clues left by the target already scanned (headers, redirects, certificate, HTML links), under **strict safeguards** and **explicit user validation** before any discovered target is scanned, then **rebuilds an architecture graph** (who talks to whom, with what confidence). A tool of the `omega-` suite, structured in Clean Architecture — see `docs/ARCHITECTURE.md` for the full technical details.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-deep/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-deep/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-deep/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/en/omega-deep/D.png" width="24%" />
+</p>
+
 ## 1. Vision and scope
 
 Omega-deep answers a question omega-check does not ask: *behind this IP, what else is there?* A reverse proxy announcing its backend, a certificate covering several hosts, a page pointing to a neighboring service — so many clues that omega-deep follows, carefully, never on its own.
@@ -114,6 +121,10 @@ Flow: splash screen (closes on a key press or a click) → main menu (Analyze / 
 ### Interface languages
 
 The interface is available in 17 languages: French, English, Spanish, Portuguese (Brazil), Italian, German, Dutch, Polish, Russian, Simplified Chinese, Vietnamese, Thai, Indonesian, Japanese, Korean, Hindi and Arabic. The choice is made in Settings ("Langue / Language") and takes effect after the interface restarts; the `OMEGA_DEEP_LANG` variable (for example `OMEGA_DEEP_LANG=en ./omega-deep.sh`) forces a language for one session. When launched from omega-suite, omega-deep uses the suite's language. On a Linux text console (TTY), languages with a non-Latin script are shown in English for the session. The command line stays in French.
+
+### Contact and support
+
+Help (`a` key) offers a **Contact and support** screen: *Buy me a coffee* (the developer's PayPal page), *Contact support* (email address and the site's contact form, shown in plain text), *Declare myself as a user (anonymous)* and *Check for updates*. The declaration is voluntary, off by default and sent only once: it is used only to count users and, if you wish, their continent or country (closed lists, never free text). It sends a randomly drawn key, the software name (`omega-deep`) and its version; never a name, a machine name, a setting, a target or a result. The IP address is not stored in the declarations, but, like any visit, it goes through the security checks and the log of the receiving server. You can withdraw at any time from the same screen (*Stop declaring me*). The update check only reads the list of versions published on the site, and never without a click.
 
 ### Scriptable mode (CLI)
 

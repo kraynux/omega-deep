@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "omega-deep"
-version = "1.5.0"
+version = "1.6.0"
 description = "Analyse d'architecture multi-cibles (decouverte + garde-fous), omega-deep"
 readme = "README.md"
 license = { file = "LICENSE" }

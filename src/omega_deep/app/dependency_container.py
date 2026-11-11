@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+from omega_lib.ports.declaration import ContactSupportServices
 from omega_lib.shared.typing import IdFactory
 
 from omega_deep.ports.discovery_prober import DiscoveryProber
@@ -50,6 +51,9 @@ class DependencyContainer:
     id_factory: IdFactory
     clock: Callable[[], datetime]
     connection: sqlite3.Connection
+    contact_support: ContactSupportServices | None = None
+    """Aide -> Contact et support (omega-lib, D-016, 2026-11-09) : declaration anonyme une seule
+    fois, mises a jour, navigateur. None : bouton masque (conteneur partiel des tests)."""
 
     def close(self) -> None:
         self.connection.close()

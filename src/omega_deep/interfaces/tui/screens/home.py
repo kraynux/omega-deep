@@ -65,7 +65,7 @@ class HomeScreen(Screen[None]):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "help":
-            self.app.push_screen(HelpScreen())
+            self.app.push_screen(HelpScreen(container=self._container))
             return
         if event.button.id == "quit":
             self.app.push_screen(QuitConfirmScreen(), self._quit_if_confirmed)

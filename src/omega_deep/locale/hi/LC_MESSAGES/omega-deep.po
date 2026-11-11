@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_deep/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-deep"
@@ -63,23 +63,23 @@ msgstr "विश्लेषणों की तुलना"
 msgid "EXPORTER L'ANALYSE"
 msgstr "विश्लेषण निर्यात करें"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:29 src/omega_deep/interfaces/tui/screens/home.py:29
 msgid "Analyser"
 msgstr "विश्लेषण करें"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:31
 msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
 msgstr "एक मूल लक्ष्य (IP या होस्टनाम), पोर्ट प्रोफ़ाइल और खोज की सुरक्षा सीमाएँ (अधिकतम गहराई, अतिरिक्त लक्ष्यों की संख्या, अनुमत सबनेट) दर्ज करें, फिर विश्लेषण शुरू करें। हर खोजा गया लक्ष्य किसी भी स्कैन से पहले स्वीकृति के लिए प्रस्तुत किया जाता है (कोई लक्ष्य कभी अपने आप स्कैन नहीं होता)।"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:40
 msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
 msgstr "सभी पिछले विश्लेषणों की सूची: पूर्ण विवरण (होस्ट + संरचना ग्राफ़), दो विश्लेषणों की तुलना, या उसी मूल लक्ष्य पर विश्लेषण फिर से चलाना।"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:48
 msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
 msgstr "विश्लेषण के विवरण से: JSON (पूर्ण संरचना), टेक्स्ट (संक्षिप्त रिपोर्ट) या HTML (संरचना ग्राफ़ के आरेख सहित दृश्य रिपोर्ट, निर्यात थीम इंटरफ़ेस थीम से स्वतंत्र)।"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:56
 msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
 msgstr "Omega-deep मूल लक्ष्य के आसपास की संरचना खोजता और उसका नक्शा बनाता है (बहु-लक्ष्य विश्लेषण): हर खोजा गया लक्ष्य (HTTP लिंक, घोषित सेवा) उपयोगकर्ता को प्रस्तावित किया जाता है — स्पष्ट स्वीकृति के बिना कभी स्कैन नहीं होता (fail-safe: जो पुष्ट नहीं, वह अस्वीकृत)। सुरक्षा सीमाएँ (गहराई, लक्ष्यों की संख्या, सबनेट) हमेशा खोज के दायरे को सीमित रखती हैं।"
 

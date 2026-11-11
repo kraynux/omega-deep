@@ -24,6 +24,13 @@ Halaman resmi: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) &
 
 **Omega-deep** melakukan semua yang dilakukan `omega-check` pada satu target (pemindaian port, pengenalan layanan, peran, WAF, TLS) dan menambahkan **penemuan target tambahan** dari petunjuk yang ditinggalkan target yang sudah dipindai (header, pengalihan, sertifikat, tautan HTML), di bawah **pengaman yang ketat** dan **validasi eksplisit oleh pengguna** sebelum target temuan mana pun dipindai, lalu **merekonstruksi graf arsitektur** (siapa berbicara dengan siapa, dengan tingkat keyakinan apa). Alat dari rangkaian `omega-`, disusun dengan Clean Architecture — lihat `docs/ARCHITECTURE.md` untuk detail teknis lengkap.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-deep/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-deep/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-deep/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/id/omega-deep/D.png" width="24%" />
+</p>
+
 ## 1. Visi dan cakupan
 
 Omega-deep menjawab pertanyaan yang tidak diajukan omega-check: *di balik IP ini, apa lagi yang ada?* Reverse proxy yang mengumumkan backend-nya, sertifikat yang mencakup beberapa host, halaman yang menunjuk ke layanan di sebelahnya — semuanya petunjuk yang diikuti omega-deep dengan hati-hati, tidak pernah atas kehendaknya sendiri.
@@ -114,6 +121,10 @@ Alur: layar pembuka (tertutup dengan satu tombol atau klik) → menu utama (Anal
 ### Bahasa antarmuka
 
 Antarmuka tersedia dalam 17 bahasa: Prancis, Inggris, Spanyol, Portugis (Brasil), Italia, Jerman, Belanda, Polandia, Rusia, Tionghoa Sederhana, Vietnam, Thai, Indonesia, Jepang, Korea, Hindi, dan Arab. Pilihan dibuat di Pengaturan (“Langue / Language”) dan berlaku setelah antarmuka dimulai ulang; variabel `OMEGA_DEEP_LANG` (misalnya `OMEGA_DEEP_LANG=id ./omega-deep.sh`) memaksakan bahasa untuk satu sesi. Jika dijalankan dari omega-suite, omega-deep memakai bahasa rangkaian. Di konsol teks Linux (TTY), bahasa beraksara non-Latin ditampilkan dalam bahasa Inggris selama sesi itu. Baris perintah tetap berbahasa Prancis.
+
+### Kontak dan dukungan
+
+Bantuan (tombol `a`) menyediakan layar **Kontak dan dukungan**: *Traktir kopi* (halaman PayPal pengembang), *Hubungi dukungan* (alamat email dan formulir kontak situs, ditampilkan apa adanya), *Daftarkan saya sebagai pengguna (anonim)*, dan *Periksa pembaruan*. Pendaftaran bersifat sukarela, nonaktif secara bawaan, dan dikirim hanya sekali: hanya digunakan untuk menghitung pengguna dan, jika Anda mau, benua atau negara mereka (daftar tertutup, tidak pernah teks bebas). Yang dikirim adalah kunci yang diambil secara acak, nama perangkat lunak (`omega-deep`), dan versinya; tidak pernah nama, nama mesin, pengaturan, target, maupun hasil. Alamat IP tidak disimpan dalam pendaftaran, tetapi, seperti setiap kunjungan, melewati pemeriksaan keamanan dan log server penerima. Penarikan kapan saja dari layar yang sama (*Jangan daftarkan saya lagi*). Pemeriksaan pembaruan hanya membaca daftar versi yang dipublikasikan di situs, dan tidak pernah tanpa klik.
 
 ### Mode skrip (CLI)
 

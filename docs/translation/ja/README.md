@@ -24,6 +24,13 @@
 
 **Omega-deep** は、`omega-check` が単一ターゲットに対して行うこと（ポートスキャン、サービスの特定、役割、WAF、TLS）をすべて引き継ぎ、スキャン済みのターゲットが残した手がかり（ヘッダー、リダイレクト、証明書、HTML リンク）から**さらに別のターゲットを発見**します。これは**厳格な安全上の制限**のもとで行われ、発見したターゲットをスキャンする前には必ず**ユーザーの明示的な承認**を求めます。そのうえで**アーキテクチャのグラフを再構築**します（誰が誰と通信しているか、どの程度の信頼度か）。`omega-` スイートのツールで、Clean Architecture で構成されています — 技術的な詳細はすべて `docs/ARCHITECTURE.md` を参照してください。
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-deep/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-deep/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-deep/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/ja/omega-deep/D.png" width="24%" />
+</p>
+
 ## 1. ビジョンと範囲
 
 Omega-deep は、omega-check が問わない問いに答えます：*この IP の背後には、ほかに何があるのか？* バックエンドを名乗るリバースプロキシ、複数のホストをカバーする証明書、隣のサービスを指すページ — omega-deep はこうした手がかりを慎重にたどりますが、決して独断では動きません。
@@ -114,6 +121,10 @@ deep
 ### インターフェースの言語
 
 インターフェースは 17 言語に対応しています：フランス語、英語、スペイン語、ポルトガル語（ブラジル）、イタリア語、ドイツ語、オランダ語、ポーランド語、ロシア語、簡体字中国語、ベトナム語、タイ語、インドネシア語、日本語、韓国語、ヒンディー語、アラビア語。設定（「Langue / Language」）で選択し、インターフェースの再起動後に反映されます。変数 `OMEGA_DEEP_LANG`（例：`OMEGA_DEEP_LANG=ja ./omega-deep.sh`）で、1 セッションの間だけ言語を固定できます。omega-suite から起動した場合、omega-deep はスイートの言語を使います。Linux のテキストコンソール（TTY）では、ラテン文字以外の言語はそのセッション中は英語で表示されます。コマンドラインはフランス語のままです。
+
+### お問い合わせとサポート
+
+ヘルプ（`a` キー）には **お問い合わせとサポート** 画面があります：*コーヒーをおごる*（開発者の PayPal ページ）、*サポートに連絡*（メールアドレスとサイトのお問い合わせフォームをそのまま表示）、*ユーザーとして登録（匿名）*、*更新を確認*。 登録は任意で、既定では無効、送信は一度だけです。利用者の数と、希望すればその大陸または国（選択式のリストのみ、自由入力なし）を数えるためだけに使われます。送信されるのは、ランダムに生成したキー、ソフトウェア名（`omega-deep`）とそのバージョンだけで、名前、マシン名、設定、対象、結果は決して送信されません。IP アドレスは登録データには保存されませんが、通常のアクセスと同様に、受信サーバーのセキュリティチェックとログを通過します。 同じ画面からいつでも取り消せます（*登録を取り消す*）。 更新の確認は、サイトで公開されているバージョンの一覧を読むだけで、クリックしない限り行われません。
 
 ### スクリプトモード（CLI）
 

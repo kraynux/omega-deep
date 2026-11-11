@@ -24,6 +24,13 @@
 
 **Omega-deep** 具备 `omega-check` 在单一目标上的全部能力（端口扫描、服务识别、角色、WAF、TLS），并在此基础上，根据已扫描目标留下的线索（响应头、重定向、证书、HTML 链接）**发现更多目标**——始终处于**严格的安全限制**之下，并在扫描任何新发现目标之前**由用户明确确认**——随后**重建一张架构关系图**（谁与谁通信、可信度如何）。它是 `omega-` 套件中的一个工具，采用 Clean Architecture 构建 — 完整技术细节见 `docs/ARCHITECTURE.md`。
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-deep/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-deep/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-deep/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/zh-CN/omega-deep/D.png" width="24%" />
+</p>
+
 ## 1. 愿景与范围
 
 Omega-deep 回答了 omega-check 不会提出的问题：*这个 IP 背后还有什么？* 一个公布其后端的反向代理、一张覆盖多个主机的证书、一个指向邻近服务的页面——这些都是 omega-deep 会谨慎跟进的线索，但绝不会擅自行动。
@@ -114,6 +121,10 @@ deep
 ### 界面语言
 
 界面提供 17 种语言：法语、英语、西班牙语、葡萄牙语（巴西）、意大利语、德语、荷兰语、波兰语、俄语、简体中文、越南语、泰语、印尼语、日语、韩语、印地语和阿拉伯语。在设置中选择（“Langue / Language”），重启界面后生效；变量 `OMEGA_DEEP_LANG`（例如 `OMEGA_DEEP_LANG=zh-CN ./omega-deep.sh`）可在一次会话中强制使用某种语言。从 omega-suite 启动时，omega-deep 使用套件的语言。在 Linux 文本控制台（TTY）上，非拉丁文字的语言在本次会话中以英语显示。命令行保持法语。
+
+### 联系与支持
+
+帮助（`a` 键）提供 **联系与支持** 界面：*请我喝杯咖啡*（开发者的 PayPal 页面）、*联系支持*（明文显示的电子邮件地址和网站联系表单）、*登记为用户（匿名）* 和 *检查更新*。 登记是自愿的，默认关闭，且只发送一次：仅用于统计用户数量，以及（如您愿意）其所在的大洲或国家（封闭列表，绝无自由文本）。它发送一个随机生成的密钥、软件名称（`omega-deep`）及其版本；绝不发送姓名、机器名称、设置、目标或结果。IP 地址不会记录在登记中，但与任何访问一样，会经过接收服务器的安全检查和日志。 可随时在同一界面撤回（*不再登记我*）。 检查更新仅读取网站上已发布版本的列表，且从不在未点击的情况下进行。
 
 ### 脚本模式（CLI）
 

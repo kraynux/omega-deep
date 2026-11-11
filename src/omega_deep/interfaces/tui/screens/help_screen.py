@@ -11,6 +11,7 @@ from textual.widgets import Button, DataTable, Footer, Header, Static
 
 from omega_deep.domain.profiles.defaults import SYSTEM_PROFILES
 from omega_deep.interfaces.tui.screens._base import OmegaScreen
+from omega_deep.interfaces.tui.screens.contact_support import contact_support_screen
 from omega_deep.shared.i18n import _
 
 _SHORTCUTS = (
@@ -63,6 +64,12 @@ _SCOPE_NOTICE = (
 class HelpScreen(OmegaScreen):
     """Reference statique, accessible depuis n'importe quel ecran (touche `a`)."""
 
+    def __init__(self, *, container: object | None = None) -> None:
+        super().__init__()
+        # Aide -> Contact et support (D-016, 2026-11-09) : services prepares par le conteneur de
+        # l'outil (app/) ; absents (bouton masque) si l'aide est ouverte sans conteneur.
+        self._contact_support = getattr(container, "contact_support", None)
+
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="omega-panel"):
@@ -79,8 +86,12 @@ class HelpScreen(OmegaScreen):
             yield DataTable(id="profile-table")
             yield Static("")
             yield Static(_SCOPE_NOTICE, classes="omega-subtitle")
-            with Horizontal(classes="omega-actions"), Container(classes="omega-btn-frame"):
-                yield Button(_("Retour"), id="back")
+            with Horizontal(classes="omega-actions"):
+                if self._contact_support is not None:
+                    with Container(classes="omega-btn-frame"):
+                        yield Button(_("Contact et support"), id="contact-support", variant="primary")
+                with Container(classes="omega-btn-frame"):
+                    yield Button(_("Retour"), id="back")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -94,3 +105,5 @@ class HelpScreen(OmegaScreen):
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "back":
             self.dismiss()
+        elif event.button.id == "contact-support" and self._contact_support is not None:
+            self.app.push_screen(contact_support_screen(self._contact_support))

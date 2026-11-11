@@ -90,23 +90,23 @@ msgstr ""
 msgid "EXPORTER L'ANALYSE"
 msgstr ""
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:29 src/omega_deep/interfaces/tui/screens/home.py:29
 msgid "Analyser"
 msgstr ""
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:31
 msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
 msgstr ""
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:40
 msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
 msgstr ""
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:48
 msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
 msgstr ""
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:56
 msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
 msgstr ""
 

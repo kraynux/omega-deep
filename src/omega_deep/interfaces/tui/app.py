@@ -139,7 +139,7 @@ class OmegaDeepApp(App[None]):
         )
 
     def action_help(self) -> None:
-        self.push_screen(HelpScreen())
+        self.push_screen(HelpScreen(container=self._container))
 
     def get_system_commands(self, screen: Screen) -> Iterable[SystemCommand]:
         """Remplace la liste par defaut de Textual plutot que d'appeler

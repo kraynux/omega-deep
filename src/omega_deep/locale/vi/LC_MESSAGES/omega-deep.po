@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_deep/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-deep"
@@ -63,23 +63,23 @@ msgstr "SO SÁNH PHÂN TÍCH"
 msgid "EXPORTER L'ANALYSE"
 msgstr "XUẤT PHÂN TÍCH"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:29 src/omega_deep/interfaces/tui/screens/home.py:29
 msgid "Analyser"
 msgstr "Phân tích"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:31
 msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
 msgstr "Nhập một mục tiêu gốc (IP hoặc hostname), một hồ sơ cổng và các giới hạn an toàn cho việc khám phá (độ sâu tối đa, số mục tiêu bổ sung, mạng con được phép), rồi bắt đầu phân tích. Mỗi mục tiêu được khám phá đều được trình ra để duyệt trước bất kỳ lần quét nào (không mục tiêu nào được quét tự động)."
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:40
 msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
 msgstr "Liệt kê mọi phân tích trước đây: chi tiết đầy đủ (host + đồ thị kiến trúc), so sánh hai phân tích, hoặc chạy lại một phân tích trên cùng mục tiêu gốc."
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:48
 msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
 msgstr "Từ chi tiết một phân tích: JSON (cấu trúc đầy đủ), văn bản (báo cáo ngắn gọn) hoặc HTML (báo cáo trực quan có sơ đồ đồ thị kiến trúc, giao diện xuất độc lập với giao diện ứng dụng)."
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:56
 msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
 msgstr "Omega-deep khám phá và lập bản đồ kiến trúc quanh một mục tiêu gốc (phân tích nhiều mục tiêu): mỗi mục tiêu được khám phá (liên kết HTTP, dịch vụ được công bố) đều được đề xuất cho người dùng — không bao giờ bị quét khi chưa được duyệt rõ ràng (fail-safe: mọi thứ chưa xác nhận đều bị từ chối). Các giới hạn an toàn (độ sâu, số mục tiêu, mạng con) luôn giới hạn phạm vi khám phá."
 

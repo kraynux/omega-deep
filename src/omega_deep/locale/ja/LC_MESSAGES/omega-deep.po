@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Omega-Status: testing\n"
+"X-Omega-Status: validated\n"
 
 #: src/omega_deep/application/commands/clear_directory.py:52
 msgid "contient l'installation de omega-deep"
@@ -63,23 +63,23 @@ msgstr "分析の比較"
 msgid "EXPORTER L'ANALYSE"
 msgstr "分析のエクスポート"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:28 src/omega_deep/interfaces/tui/screens/home.py:29
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:29 src/omega_deep/interfaces/tui/screens/home.py:29
 msgid "Analyser"
 msgstr "分析"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:30
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:31
 msgid "Saisir une cible racine (IP ou hostname), un profil de ports et les garde-fous de découverte (profondeur max, nombre de cibles supplémentaires, sous-réseau autorisé), puis lancer l'analyse. Chaque cible découverte est présentée pour validation avant tout scan (aucune cible n'est jamais scannée automatiquement)."
 msgstr "ルートターゲット（IP またはホスト名）、ポートプロファイル、発見のガードレール（最大深度、追加ターゲット数、許可するサブネット）を入力し、分析を開始します。発見された各ターゲットは、スキャンの前に承認のため提示されます（自動的にスキャンされるターゲットは一切ありません）。"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:39
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:40
 msgid "Liste toutes les analyses passées : détail complet (hosts + graphe d'architecture), comparaison entre deux analyses, ou rejouer une analyse sur la même cible racine."
 msgstr "過去のすべての分析を一覧表示：完全な詳細（ホスト + アーキテクチャグラフ）、2 つの分析の比較、または同じルートターゲットでの再実行。"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:47
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:48
 msgid "Depuis le détail d'une analyse : JSON (structure complète), texte (rapport compact) ou HTML (rapport visuel avec diagramme du graphe d'architecture, thème d'export indépendant du thème de l'interface)."
 msgstr "分析の詳細から：JSON（完全な構造）、テキスト（簡潔なレポート）、HTML（アーキテクチャグラフの図を含む視覚的なレポート、エクスポートのテーマはインターフェースのテーマとは独立）。"
 
-#: src/omega_deep/interfaces/tui/screens/help_screen.py:55
+#: src/omega_deep/interfaces/tui/screens/help_screen.py:56
 msgid "Omega-deep découvre et cartographie l'architecture autour d'une cible racine (analyse multi-cibles) : chaque cible découverte (lien HTTP, service annoncé) est proposée à l'utilisateur — jamais scannée sans validation explicite (fail-safe : tout ce qui n'est pas confirmé est rejeté). Les garde-fous (profondeur, nombre de cibles, sous-réseau) bornent toujours la portée de la découverte."
 msgstr "Omega-deep はルートターゲット周辺のアーキテクチャを発見してマッピングします（複数ターゲットの分析）：発見された各ターゲット（HTTP リンク、公開されたサービス）はユーザーに提案され、明示的な承認なしにスキャンされることはありません（フェイルセーフ：確認されないものはすべて拒否）。ガードレール（深度、ターゲット数、サブネット）が常に発見の範囲を制限します。"
 

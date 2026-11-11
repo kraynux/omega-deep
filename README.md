@@ -24,6 +24,13 @@ Page officiel : [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-deep/) 
 
 **Omega-deep** reprend tout ce que fait `omega-check` sur une cible unique (scan de ports, identification de service, rôles, WAF, TLS) et y ajoute la **découverte de cibles supplémentaires** à partir des indices laissés par la cible déjà scannée (en-têtes, redirections, certificat, liens HTML), sous des **garde-fous stricts** et une **validation utilisateur explicite** avant tout scan d'une cible découverte, puis **reconstruit un graphe d'architecture** (qui parle à qui, avec quelle confiance). Outil de la suite `omega-`, structuré en Clean Architecture — voir `docs/ARCHITECTURE.md` pour le détail technique complet.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-deep/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-deep/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-deep/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/assets/omega-deep/D.png" width="24%" />
+</p>
+
 ## 1. Vision et périmètre
 
 Omega-deep répond à une question qu'omega-check ne pose pas : *derrière cette IP, qu'est-ce qu'il y a d'autre ?* Un reverse-proxy qui annonce son backend, un certificat qui couvre plusieurs hôtes, une page qui pointe vers un service voisin — autant d'indices qu'omega-deep suit, prudemment, jamais tout seul.
@@ -114,6 +121,10 @@ Parcours : écran de démarrage (se ferme sur une touche ou un clic) → menu pr
 ### Langues de l'interface
 
 L'interface est disponible en 17 langues : français, anglais, espagnol, portugais (Brésil), italien, allemand, néerlandais, polonais, russe, chinois simplifié, vietnamien, thaï, indonésien, japonais, coréen, hindi et arabe. Le choix se fait dans les Réglages (« Langue / Language ») et s'applique après un redémarrage de l'interface ; la variable `OMEGA_DEEP_LANG` (par exemple `OMEGA_DEEP_LANG=en ./omega-deep.sh`) force une langue le temps d'une session. Lancé depuis omega-suite, omega-deep prend la langue de la suite. Sur une console texte Linux (TTY), les langues à écriture non latine s'affichent en anglais pour la session. La ligne de commande reste en français.
+
+### Contact et support
+
+L'aide (touche `a`) propose un écran **Contact et support** : *Payer un café* (page PayPal du développeur), *Contacter le support* (adresse mail et formulaire de contact du site, affichés en clair), *Se déclarer utilisateur (anonyme)* et *Vérifier les mises à jour*. La déclaration est volontaire, désactivée par défaut et envoyée une seule fois : elle sert seulement à compter les utilisateurs et, si on le souhaite, leur continent ou leur pays (listes fermées, jamais de texte libre). Elle envoie une clé tirée au hasard, le nom du logiciel (`omega-deep`) et sa version ; jamais de nom, de nom de machine, de réglage, de cible ni de résultat. L'adresse IP n'est pas enregistrée dans les déclarations, mais passe, comme toute visite, par les contrôles de sécurité et le journal du serveur de réception. Retrait à tout moment depuis le même écran (*Ne plus me déclarer*). La vérification des mises à jour lit seulement la liste des versions publiées sur le site, et jamais sans clic.
 
 ### Mode scriptable (CLI)
 

@@ -24,6 +24,13 @@ Trang chính thức: [OMEGA-DEEP](https://kraynux.snake-mackarel.ts.net/omega-de
 
 **Omega-deep** làm được mọi việc `omega-check` làm trên một mục tiêu duy nhất (quét cổng, nhận diện dịch vụ, vai trò, WAF, TLS) và bổ sung thêm **khám phá các mục tiêu khác** từ những dấu hiệu mà mục tiêu đã quét để lại (tiêu đề, chuyển hướng, chứng chỉ, liên kết HTML), dưới **các giới hạn an toàn nghiêm ngặt** và một **xác nhận rõ ràng của người dùng** trước khi quét bất kỳ mục tiêu nào được khám phá, rồi **dựng lại một đồ thị kiến trúc** (ai nói chuyện với ai, với độ tin cậy nào). Đây là một công cụ của bộ `omega-`, được tổ chức theo Clean Architecture — xem `docs/ARCHITECTURE.md` để biết đầy đủ chi tiết kỹ thuật.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-deep/A.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-deep/B.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-deep/C.png" width="24%" />
+  <img src="https://raw.githubusercontent.com/kraynux/kraynux/refs/heads/main/docs/translation/vi/omega-deep/D.png" width="24%" />
+</p>
+
 ## 1. Tầm nhìn và phạm vi
 
 Omega-deep trả lời một câu hỏi mà omega-check không đặt ra: *đằng sau địa chỉ IP này còn có gì nữa?* Một reverse proxy công bố máy chủ phía sau, một chứng chỉ bao phủ nhiều máy, một trang trỏ tới một dịch vụ bên cạnh — đó đều là những dấu hiệu mà omega-deep lần theo, một cách thận trọng và không bao giờ tự ý.
@@ -114,6 +121,10 @@ Trình tự: màn hình khởi động (đóng bằng một phím hoặc một c
 ### Ngôn ngữ giao diện
 
 Giao diện có sẵn bằng 17 ngôn ngữ: tiếng Pháp, tiếng Anh, tiếng Tây Ban Nha, tiếng Bồ Đào Nha (Brasil), tiếng Ý, tiếng Đức, tiếng Hà Lan, tiếng Ba Lan, tiếng Nga, tiếng Trung giản thể, tiếng Việt, tiếng Thái, tiếng Indonesia, tiếng Nhật, tiếng Hàn, tiếng Hindi và tiếng Ả Rập. Ngôn ngữ được chọn trong Thiết lập (“Langue / Language”) và có hiệu lực sau khi khởi động lại giao diện; biến `OMEGA_DEEP_LANG` (ví dụ `OMEGA_DEEP_LANG=vi ./omega-deep.sh`) buộc dùng một ngôn ngữ trong một phiên. Khi được chạy từ omega-suite, omega-deep dùng ngôn ngữ của bộ công cụ. Trên console văn bản Linux (TTY), giao diện hiển thị bằng tiếng Anh trong phiên đó đối với tiếng Việt và các ngôn ngữ không dùng chữ Latinh. Dòng lệnh vẫn bằng tiếng Pháp.
+
+### Liên hệ và hỗ trợ
+
+Phần trợ giúp (phím `a`) có màn hình **Liên hệ và hỗ trợ**: *Mời một ly cà phê* (trang PayPal của nhà phát triển), *Liên hệ hỗ trợ* (địa chỉ email và biểu mẫu liên hệ của trang web, hiển thị rõ ràng), *Khai báo là người dùng (ẩn danh)* và *Kiểm tra cập nhật*. Việc khai báo là tự nguyện, tắt theo mặc định và chỉ gửi một lần: nó chỉ dùng để đếm số người dùng và, nếu bạn muốn, châu lục hoặc quốc gia của họ (danh sách đóng, không bao giờ là văn bản tự do). Nó gửi một khóa được tạo ngẫu nhiên, tên phần mềm (`omega-deep`) và phiên bản của nó; không bao giờ gửi tên, tên máy, thiết lập, mục tiêu hay kết quả. Địa chỉ IP không được lưu trong các khai báo, nhưng, như mọi lượt truy cập, nó đi qua các kiểm tra bảo mật và nhật ký của máy chủ nhận. Có thể rút lại bất cứ lúc nào từ cùng màn hình (*Không khai báo tôi nữa*). Việc kiểm tra cập nhật chỉ đọc danh sách các phiên bản đã phát hành trên trang web, và không bao giờ khi chưa nhấp.
 
 ### Chế độ script (CLI)
 
